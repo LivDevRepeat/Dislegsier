@@ -12,14 +12,12 @@ namespace Disleksia
 {
     public partial class Form1 : Form
     {
-        public event Action reaccurringActions;
-        public event Action oneTimeAction;
-
+        public event Action updating;
         public Form1()
         {
             InitializeComponent();
 
-            listBox1.Items.Add((new MyListBoxItem(Color.DarkSeaGreen, "Du sollst Die Vokabeln mitschreiben",ui_Text )));
+            lBx_MainWindow.Items.Add((new MyListBoxItem(Color.DarkSeaGreen, "Du sollst Die Vokabeln mitschreiben",ui_Text )));
             Updating();
         }
 
@@ -54,7 +52,6 @@ namespace Disleksia
            
         }
 
-        private   bool moves_already = true;
         private void imput_KeyPress(object sender, KeyPressEventArgs e)
         {
             switch(e.KeyChar)
@@ -62,50 +59,33 @@ namespace Disleksia
                 case (char)13:
                     if (imput.Text != "")
                     {
-                        string outInBox = Wörterscramble(imput.Text);
+                        string outInBox = Wordscramble(imput.Text);
 
                         //listBox1.Items.Add(new MyListBoxItem(Color.DarkBlue, imput.Text, new Font("With My Woes", 12, FontStyle.Bold)));
-                        listBox1.Items.Add(new MyListBoxItem(Color.DarkBlue, outInBox, player_Text_Handwritten));
-                        listBox1.ItemHeight = 28;
-                        listBox1.ItemHeight++;
+                        lBx_MainWindow.Items.Add(new MyListBoxItem(Color.DarkBlue, outInBox, player_Text_Handwritten));
+                        lBx_MainWindow.ItemHeight = 28;
+                        lBx_MainWindow.ItemHeight++;
                        // listBox1.Items.Add(new MyListBoxItem(Color.Red, ($"{listBox1.ItemHeight}"), new Font("ApplauseFon", 22, FontStyle.Bold)));
                         // listBox1.Items.Add(imput.Text);
                     
-                        if (listBox1.Items.Count>10)
+                        if (lBx_MainWindow.Items.Count>10)
                         {
-                            listBox1.Items.RemoveAt(0);
-                            listBox1.Items.RemoveAt(1);
+                            lBx_MainWindow.Items.RemoveAt(0);
+                            lBx_MainWindow.Items.RemoveAt(1);
 
                         }
-                        listBox1.TopIndex = listBox1.Items.Count - 1;
+                        lBx_MainWindow.TopIndex = lBx_MainWindow.Items.Count - 1;
 
                     }
                     break;
-
-                case 'm':
-                    if (moves_already == false)
-                    {
-                        reaccurringActions += Movethings;
-                        moves_already = true;
-                    }
-                    break;
-                case 'r':
-                    if (moves_already == true)
-                    {
-                        reaccurringActions -= Movethings;
-                        moves_already = false;
-                    }
-                    break;
-
-
-
+                  
             }
 
         }
 
         private void listBox1_DrawItem(object sender, DrawItemEventArgs e)
         {
-            MyListBoxItem item = listBox1.Items[e.Index] as MyListBoxItem; // Get the current item and cast it to MyListBoxItem
+            MyListBoxItem item = lBx_MainWindow.Items[e.Index] as MyListBoxItem; // Get the current item and cast it to MyListBoxItem
             if (item != null)
             {
                 
@@ -125,8 +105,13 @@ namespace Disleksia
 
             
         }
-
-        public void Movethings()
+        /// <summary>
+        /// is an one Testing bit for testing movement
+        /// /do not remove 
+        /// 
+        ///  /moves test Button
+        /// </summary>
+        public void Movethings() 
         {
             int i = btn_test.Location.X ;
             i++;
@@ -140,8 +125,13 @@ namespace Disleksia
 
         }
   
-
-        public string Wörterscramble(string playerimput)
+        /// <summary>
+        /// function to mix Up words from the input consolos onto the 
+        /// lBx_MainWindow
+        /// </summary>
+        /// <param name="playerimput"></param>
+        /// <returns></returns>
+        public string Wordscramble(string playerimput)
         {
             Random random = new Random();
             int scramble = random.Next(0, 8);
@@ -161,19 +151,26 @@ namespace Disleksia
         }
 
 
+
+        /// <summary>
+        /// creates timer 
+        /// </summary>
         public void Updating()
         {
-            reaccurringActions += Movethings;
+           // reaccurringActions += Movethings
             Timer trytimer = new Timer();
-            trytimer.Interval = 1;
+            trytimer.Interval = 5;
             trytimer.Tick += new EventHandler(myUpdatingTry);
             trytimer.Start();
         }
-
+        /// <summary>
+        /// starts event Action updating
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void myUpdatingTry(object sender, EventArgs e)
         {
-            reaccurringActions?.Invoke();
-            maskedTextBox1.Text = btn_test.Location.ToString();
+            updating?.Invoke();
         }
 
 
