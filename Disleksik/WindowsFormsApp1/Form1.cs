@@ -8,15 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1
+namespace Disleksia
 {
     public partial class Form1 : Form
     {
+        public event Action reaccurringActions;
+        public event Action oneTimeAction;
+
         public Form1()
         {
             InitializeComponent();
 
             listBox1.Items.Add((new MyListBoxItem(Color.DarkSeaGreen, "Du sollst Die Vokabeln mitschreiben",ui_Text )));
+            Updating();
         }
 
         Font ui_Text = new Font("Applau", 12, FontStyle.Regular);
@@ -50,40 +54,55 @@ namespace WindowsFormsApp1
            
         }
 
+        private   bool moves_already = true;
         private void imput_KeyPress(object sender, KeyPressEventArgs e)
         {
-          if (e.KeyChar == (char)13)
+            switch(e.KeyChar)
             {
-
-                if (imput.Text != "")
-                {
-                    string outInBox = Wörterscramble(imput.Text);
-
-                    //listBox1.Items.Add(new MyListBoxItem(Color.DarkBlue, imput.Text, new Font("With My Woes", 12, FontStyle.Bold)));
-                    listBox1.Items.Add(new MyListBoxItem(Color.DarkBlue, outInBox, player_Text_Handwritten));
-                    listBox1.ItemHeight = 28;
-                    listBox1.ItemHeight++;
-                   // listBox1.Items.Add(new MyListBoxItem(Color.Red, ($"{listBox1.ItemHeight}"), new Font("ApplauseFon", 22, FontStyle.Bold)));
-                    // listBox1.Items.Add(imput.Text);
-                    
-                    if (listBox1.Items.Count>10)
+                case (char)13:
+                    if (imput.Text != "")
                     {
-                        listBox1.Items.RemoveAt(0);
-                        listBox1.Items.RemoveAt(1);
+                        string outInBox = Wörterscramble(imput.Text);
+
+                        //listBox1.Items.Add(new MyListBoxItem(Color.DarkBlue, imput.Text, new Font("With My Woes", 12, FontStyle.Bold)));
+                        listBox1.Items.Add(new MyListBoxItem(Color.DarkBlue, outInBox, player_Text_Handwritten));
+                        listBox1.ItemHeight = 28;
+                        listBox1.ItemHeight++;
+                       // listBox1.Items.Add(new MyListBoxItem(Color.Red, ($"{listBox1.ItemHeight}"), new Font("ApplauseFon", 22, FontStyle.Bold)));
+                        // listBox1.Items.Add(imput.Text);
+                    
+                        if (listBox1.Items.Count>10)
+                        {
+                            listBox1.Items.RemoveAt(0);
+                            listBox1.Items.RemoveAt(1);
+
+                        }
+                        listBox1.TopIndex = listBox1.Items.Count - 1;
 
                     }
-                    listBox1.TopIndex = listBox1.Items.Count - 1;
+                    break;
 
-                }
+                case 'm':
+                    if (moves_already == false)
+                    {
+                        reaccurringActions += Movethings;
+                        moves_already = true;
+                    }
+                    break;
+                case 'r':
+                    if (moves_already == true)
+                    {
+                        reaccurringActions -= Movethings;
+                        moves_already = false;
+                    }
+                    break;
 
 
-
-              //  imput.Clear();
 
             }
 
-
         }
+
         private void listBox1_DrawItem(object sender, DrawItemEventArgs e)
         {
             MyListBoxItem item = listBox1.Items[e.Index] as MyListBoxItem; // Get the current item and cast it to MyListBoxItem
@@ -103,6 +122,22 @@ namespace WindowsFormsApp1
             {
                 // The item isn't a MyListBoxItem, do  something about it
             }
+
+            
+        }
+
+        public void Movethings()
+        {
+            int i = btn_test.Location.X ;
+            i++;
+            btn_test.Location = new Point(i, btn_test.Location.Y);
+            if (btn_test.Location.X >=600)
+            {
+                btn_test.Location = new Point(600,btn_test.Location.Y);
+                
+            }
+            
+
         }
   
 
@@ -124,6 +159,24 @@ namespace WindowsFormsApp1
 
             return playerimput;
         }
+
+
+        public void Updating()
+        {
+            reaccurringActions += Movethings;
+            Timer trytimer = new Timer();
+            trytimer.Interval = 1;
+            trytimer.Tick += new EventHandler(myUpdatingTry);
+            trytimer.Start();
+        }
+
+        private void myUpdatingTry(object sender, EventArgs e)
+        {
+            reaccurringActions?.Invoke();
+            maskedTextBox1.Text = btn_test.Location.ToString();
+        }
+
+
 
     }
 }

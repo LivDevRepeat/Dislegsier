@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1
+﻿namespace Disleksia
 {
     partial class Form1
     {
@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.imput = new System.Windows.Forms.TextBox();
             this.btn_test = new System.Windows.Forms.Button();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -56,7 +58,7 @@
             // 
             // btn_test
             // 
-            this.btn_test.Location = new System.Drawing.Point(571, 56);
+            this.btn_test.Location = new System.Drawing.Point(50, 50);
             this.btn_test.Name = "btn_test";
             this.btn_test.Size = new System.Drawing.Size(137, 68);
             this.btn_test.TabIndex = 2;
@@ -66,7 +68,7 @@
             // 
             // maskedTextBox1
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(49, 337);
+            this.maskedTextBox1.Location = new System.Drawing.Point(50, 370);
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(556, 20);
             this.maskedTextBox1.TabIndex = 3;
@@ -114,6 +116,7 @@
         public System.Windows.Forms.TextBox imput;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
