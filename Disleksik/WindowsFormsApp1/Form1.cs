@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Disleksia
@@ -17,7 +11,7 @@ namespace Disleksia
         {
             InitializeComponent();
 
-            lBx_MainWindow.Items.Add((new MyListBoxItem(Color.DarkSeaGreen, "Du sollst Die Vokabeln mitschreiben",ui_Text )));
+            lBx_MainWindow.Items.Add((new MyListBoxItem(Color.DarkSeaGreen, "Du sollst Die Vokabeln mitschreiben", ui_Text)));
             Updating();
         }
 
@@ -25,7 +19,7 @@ namespace Disleksia
         Font player_Text_Handwritten = new Font("ApplauseFont", 22, FontStyle.Bold);
         public class MyListBoxItem
         {
-            public MyListBoxItem(Color c, string m,Font f)
+            public MyListBoxItem(Color c, string m, Font f)
             {
                 ItemColor = c;
                 Message = m;
@@ -49,12 +43,12 @@ namespace Disleksia
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void imput_KeyPress(object sender, KeyPressEventArgs e)
         {
-            switch(e.KeyChar)
+            switch (e.KeyChar)
             {
                 case (char)13:
                     if (imput.Text != "")
@@ -64,11 +58,11 @@ namespace Disleksia
                         //listBox1.Items.Add(new MyListBoxItem(Color.DarkBlue, imput.Text, new Font("With My Woes", 12, FontStyle.Bold)));
                         lBx_MainWindow.Items.Add(new MyListBoxItem(Color.DarkBlue, outInBox, player_Text_Handwritten));
                         lBx_MainWindow.ItemHeight = 28;
-                        lBx_MainWindow.ItemHeight++;
-                       // listBox1.Items.Add(new MyListBoxItem(Color.Red, ($"{listBox1.ItemHeight}"), new Font("ApplauseFon", 22, FontStyle.Bold)));
+                        //lBx_MainWindow.ItemHeight++;
+                        // listBox1.Items.Add(new MyListBoxItem(Color.Red, ($"{listBox1.ItemHeight}"), new Font("ApplauseFon", 22, FontStyle.Bold)));
                         // listBox1.Items.Add(imput.Text);
-                    
-                        if (lBx_MainWindow.Items.Count>10)
+
+                        if (lBx_MainWindow.Items.Count > 10)
                         {
                             lBx_MainWindow.Items.RemoveAt(0);
                             lBx_MainWindow.Items.RemoveAt(1);
@@ -78,7 +72,16 @@ namespace Disleksia
 
                     }
                     break;
-                  
+
+                 case 't':
+                    updating -= Movethings;
+                    HittingTest(btn_test.Location);
+                    btn_test.Location = new Point(50, 50);
+                    break;
+                case 's':
+                    updating += Movethings;
+                    break;
+
             }
 
         }
@@ -88,14 +91,14 @@ namespace Disleksia
             MyListBoxItem item = lBx_MainWindow.Items[e.Index] as MyListBoxItem; // Get the current item and cast it to MyListBoxItem
             if (item != null)
             {
-                
+
                 e.Graphics.DrawString( // Draw the appropriate text in the ListBox
                     item.Message, // The message linked to the item
                     item.Fontstyle, // Take the font from the listbox
                     new SolidBrush(item.ItemColor), // Set the color 
                     e.Bounds // Y pixel coordinate.  Multiply the index by the ItemHeight defined in the listbox.
                 );
-                     //listBox1.TopIndex = listBox1.Items.Count - 1;
+                //listBox1.TopIndex = listBox1.Items.Count - 1;
 
             }
             else
@@ -103,7 +106,7 @@ namespace Disleksia
                 // The item isn't a MyListBoxItem, do  something about it
             }
 
-            
+
         }
         /// <summary>
         /// is an one Testing bit for testing movement
@@ -111,20 +114,72 @@ namespace Disleksia
         /// 
         ///  /moves test Button
         /// </summary>
-        public void Movethings() 
+        public void Movethings()
         {
-            int i = btn_test.Location.X ;
+            int i = btn_test.Location.X;
             i++;
             btn_test.Location = new Point(i, btn_test.Location.Y);
-            if (btn_test.Location.X >=600)
+            if (btn_test.Location.X >= 600)
             {
-                btn_test.Location = new Point(600,btn_test.Location.Y);
-                
+                btn_test.Location = new Point(600, btn_test.Location.Y);
+
             }
-            
+
 
         }
-  
+        private int waitingtime;
+        public void Wait(int inputwaitingtime)
+        {
+            waitingtime = inputwaitingtime;
+            Timer timer = new Timer();
+            timer.Interval = 5;
+            timer.Tick += new EventHandler(WaitingTimer);
+            timer.Start();
+            if (waitingtime == 0)
+            {
+                timer.Stop();
+            }
+        }
+        public void WaitingTimer(object sender, EventArgs e)
+        {
+            waitingtime--;
+
+        }
+
+        
+        public void HittingTest( Point point)
+
+        {
+            Wait(100);
+            Point target = new Point(200,200);
+            if (point.X == target.X) 
+            {
+                lBx_MainWindow.Items.Add(new MyListBoxItem(Color.Black, "Ya get 50 points", ui_Text));
+            }
+            if (point.X >= target.X + 10 && point.X <= target.X+25)
+            {
+
+                lBx_MainWindow.Items.Add(new MyListBoxItem(Color.Black, "Yes 20 points a little bit more left would be the jackpod", ui_Text));
+            }
+            if (point.X <= target.X  -10 && point.X <= target.X - 25)
+            {
+
+                lBx_MainWindow.Items.Add(new MyListBoxItem(Color.Black, "Yes 20 points", ui_Text));
+            }
+            if (point.X > target.X + 25 )
+            {
+
+                lBx_MainWindow.Items.Add(new MyListBoxItem(Color.Black, "Big OOff not right enough", ui_Text));
+            }
+
+            if (point.X < target.X - 25)
+            {
+
+                lBx_MainWindow.Items.Add(new MyListBoxItem(Color.Black, "Big OOff not left enough", ui_Text));
+            }
+        }
+
+
         /// <summary>
         /// function to mix Up words from the input consolos onto the 
         /// lBx_MainWindow
@@ -136,15 +191,15 @@ namespace Disleksia
             Random random = new Random();
             int scramble = random.Next(0, 8);
             scramble = 0;
-            switch(scramble)
+            switch (scramble)
             {
                 case 0:
-                   playerimput = playerimput.Replace('b', 'd');
+                    playerimput = playerimput.Replace('b', 'd');
 
-                   playerimput = playerimput.Replace('m', 'n');
+                    playerimput = playerimput.Replace('m', 'n');
                     playerimput = playerimput.Replace('z', 'c');
-      
-                break;
+
+                    break;
             }
 
             return playerimput;
@@ -157,7 +212,7 @@ namespace Disleksia
         /// </summary>
         public void Updating()
         {
-           // reaccurringActions += Movethings
+            // reaccurringActions += Movethings
             Timer trytimer = new Timer();
             trytimer.Interval = 5;
             trytimer.Tick += new EventHandler(myUpdatingTry);

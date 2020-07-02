@@ -32,6 +32,7 @@
             this.imput = new System.Windows.Forms.TextBox();
             this.btn_test = new System.Windows.Forms.Button();
             this.lBx_MainWindow = new System.Windows.Forms.ListBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.SuspendLayout();
             // 
             // label1
@@ -81,11 +82,21 @@
             this.lBx_MainWindow.TabStop = false;
             this.lBx_MainWindow.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBox1_DrawItem);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(200, 50);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(50, 50);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lBx_MainWindow);
             this.Controls.Add(this.btn_test);
             this.Controls.Add(this.imput);
@@ -104,6 +115,7 @@
         private System.Windows.Forms.Button btn_test;
         public System.Windows.Forms.TextBox imput;
         private System.Windows.Forms.ListBox lBx_MainWindow;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 
