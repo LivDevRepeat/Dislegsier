@@ -28,13 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.imput = new System.Windows.Forms.TextBox();
             this.btn_test = new System.Windows.Forms.Button();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lBx_MainWindow = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // label1
@@ -66,38 +63,30 @@
             this.btn_test.UseVisualStyleBackColor = true;
             this.btn_test.Click += new System.EventHandler(this.btn_test_Click);
             // 
-            // maskedTextBox1
+            // lBx_MainWindow
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(50, 370);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(556, 20);
-            this.maskedTextBox1.TabIndex = 3;
-            // 
-            // listBox1
-            // 
-            this.listBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBox1.CausesValidation = false;
-            this.listBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.listBox1.HorizontalScrollbar = true;
-            this.listBox1.IntegralHeight = false;
-            this.listBox1.ItemHeight = 25;
-            this.listBox1.Location = new System.Drawing.Point(49, 144);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.listBox1.Size = new System.Drawing.Size(556, 160);
-            this.listBox1.TabIndex = 4;
-            this.listBox1.TabStop = false;
-            this.listBox1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBox1_DrawItem);
+            this.lBx_MainWindow.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.lBx_MainWindow.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lBx_MainWindow.CausesValidation = false;
+            this.lBx_MainWindow.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.lBx_MainWindow.HorizontalScrollbar = true;
+            this.lBx_MainWindow.IntegralHeight = false;
+            this.lBx_MainWindow.ItemHeight = 25;
+            this.lBx_MainWindow.Location = new System.Drawing.Point(12, 153);
+            this.lBx_MainWindow.Name = "lBx_MainWindow";
+            this.lBx_MainWindow.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lBx_MainWindow.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.lBx_MainWindow.Size = new System.Drawing.Size(776, 271);
+            this.lBx_MainWindow.TabIndex = 4;
+            this.lBx_MainWindow.TabStop = false;
+            this.lBx_MainWindow.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBox1_DrawItem);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.lBx_MainWindow);
             this.Controls.Add(this.btn_test);
             this.Controls.Add(this.imput);
             this.Controls.Add(this.label1);
@@ -114,9 +103,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_test;
         public System.Windows.Forms.TextBox imput;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ListBox lBx_MainWindow;
     }
 }
 
