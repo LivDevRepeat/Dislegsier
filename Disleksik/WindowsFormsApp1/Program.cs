@@ -21,5 +21,7 @@ namespace Disleksia
             Application.Run(startscreen);
             
         }
+
+
     }
 }
