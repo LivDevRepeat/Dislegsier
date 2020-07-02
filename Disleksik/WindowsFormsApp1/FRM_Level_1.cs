@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using WindowsFormsApp1;
 
 namespace Disleksia
 {
-    public partial class Form1 : Form
+    public partial class FRM_Level_1 : Form
     {
         public event Action updating;
-        public Form1()
+        public FRM_Level_1()
         {
             InitializeComponent();
 
@@ -29,18 +30,10 @@ namespace Disleksia
             public string Message { get; set; }
             public Font Fontstyle { get; set; }
         }
-
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_test_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// makes it Possible to close everything 
+        /// </summary>
+ 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -228,7 +221,13 @@ namespace Disleksia
             updating?.Invoke();
         }
 
-
-
+        private void FRM_Level_1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+          
+            this.ParentForm.Close();
+            
+            
+            
+        }
     }
 }

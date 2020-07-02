@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1;
 
 namespace Disleksia
 {
@@ -16,7 +17,8 @@ namespace Disleksia
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            FRM_Startscreen startscreen = new FRM_Startscreen();
+            Application.Run(startscreen);
             
         }
     }
