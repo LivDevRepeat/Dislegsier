@@ -23,7 +23,7 @@ namespace WindowsFormsApp1
         {
             FRM_Level_1 level_1 = new FRM_Level_1();
             level_1.Visible = true;
-            this.Visible = false;
+            
         }
 
         private void BTN_Exit_Click(object sender, EventArgs e)

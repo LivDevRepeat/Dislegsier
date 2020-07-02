@@ -60,6 +60,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Updater.cs" />
     <EmbeddedResource Include="FRM_Startscreen.resx">
       <DependentUpon>FRM_Startscreen.cs</DependentUpon>
     </EmbeddedResource>

@@ -7,17 +7,20 @@ namespace Disleksia
 {
     public partial class FRM_Level_1 : Form
     {
-        public event Action updating;
+        Updater u = new Updater();
+        Font ui_Text = new Font("Applau", 12, FontStyle.Regular);
+        Font player_Text_Handwritten = new Font("ApplauseFont", 22, FontStyle.Bold);
+
         public FRM_Level_1()
         {
             InitializeComponent();
 
             lBx_MainWindow.Items.Add((new MyListBoxItem(Color.DarkSeaGreen, "Du sollst Die Vokabeln mitschreiben", ui_Text)));
-            Updating();
+            
+            u.Updating();
         }
 
-        Font ui_Text = new Font("Applau", 12, FontStyle.Regular);
-        Font player_Text_Handwritten = new Font("ApplauseFont", 22, FontStyle.Bold);
+        
         public class MyListBoxItem
         {
             public MyListBoxItem(Color c, string m, Font f)
@@ -30,9 +33,6 @@ namespace Disleksia
             public string Message { get; set; }
             public Font Fontstyle { get; set; }
         }
-        /// <summary>
-        /// makes it Possible to close everything 
-        /// </summary>
  
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
@@ -67,12 +67,12 @@ namespace Disleksia
                     break;
 
                  case 't':
-                    updating -= Movethings;
+                    u.updating -= Movethings;
                     HittingTest(btn_test.Location);
                     btn_test.Location = new Point(50, 50);
                     break;
                 case 's':
-                    updating += Movethings;
+                    u.updating += Movethings;
                     break;
 
             }
@@ -197,37 +197,9 @@ namespace Disleksia
 
             return playerimput;
         }
-
-
-
-        /// <summary>
-        /// creates timer 
-        /// </summary>
-        public void Updating()
-        {
-            // reaccurringActions += Movethings
-            Timer trytimer = new Timer();
-            trytimer.Interval = 5;
-            trytimer.Tick += new EventHandler(myUpdatingTry);
-            trytimer.Start();
-        }
-        /// <summary>
-        /// starts event Action updating
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void myUpdatingTry(object sender, EventArgs e)
-        {
-            updating?.Invoke();
-        }
-
         private void FRM_Level_1_FormClosing(object sender, FormClosingEventArgs e)
         {
-          
-            this.ParentForm.Close();
-            
-            
-            
+
         }
     }
 }
