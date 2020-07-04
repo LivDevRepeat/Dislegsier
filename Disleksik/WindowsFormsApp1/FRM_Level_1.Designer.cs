@@ -62,6 +62,7 @@
             this.btn_test.TabIndex = 2;
             this.btn_test.Text = "Test";
             this.btn_test.UseVisualStyleBackColor = true;
+            this.btn_test.Click += new System.EventHandler(this.btn_test_Click);
             // 
             // lBx_MainWindow
             // 

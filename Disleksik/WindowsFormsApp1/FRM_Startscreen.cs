@@ -21,14 +21,14 @@ namespace WindowsFormsApp1
 
         private void BTN_Start_Click(object sender, EventArgs e)
         {
-            FRM_Level_1 level_1 = new FRM_Level_1();
-            level_1.Visible = true;
+            FRM_Text Text = new FRM_Text();
+            Text.Visible = true;
             
         }
 
         private void BTN_Exit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Environment.Exit(0);
         }
     }
 }

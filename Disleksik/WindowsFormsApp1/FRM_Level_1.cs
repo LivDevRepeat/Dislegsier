@@ -199,7 +199,16 @@ namespace Disleksia
         }
         private void FRM_Level_1_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if(e.CloseReason != CloseReason.ApplicationExitCall)
+            {
+              // Environment.Exit(0);
 
+            }
+        }
+
+        private void btn_test_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
