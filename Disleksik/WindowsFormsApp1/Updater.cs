@@ -10,6 +10,7 @@ namespace WindowsFormsApp1
     class Updater
     {
         public event Action updating;
+        public Updater() { }
         /// <summary>
         /// creates timer 
         /// </summary>
