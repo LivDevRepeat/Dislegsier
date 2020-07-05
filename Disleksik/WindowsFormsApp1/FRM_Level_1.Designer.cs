@@ -47,9 +47,9 @@
             // imput
             // 
             this.imput.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.imput.Location = new System.Drawing.Point(0, 641);
+            this.imput.Location = new System.Drawing.Point(0, 679);
             this.imput.Name = "imput";
-            this.imput.Size = new System.Drawing.Size(984, 20);
+            this.imput.Size = new System.Drawing.Size(999, 20);
             this.imput.TabIndex = 1;
             this.imput.Text = "test test";
             this.imput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.imput_KeyPress);
@@ -84,6 +84,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.groupBox1.Location = new System.Drawing.Point(200, 50);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(50, 50);
@@ -95,7 +96,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 661);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ClientSize = new System.Drawing.Size(999, 699);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lBx_MainWindow);
             this.Controls.Add(this.btn_test);

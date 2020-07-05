@@ -10,6 +10,7 @@ namespace WindowsFormsApp1
     class Updater
     {
         public event Action updating;
+        public int intervall = 5; 
         public Updater() { }
         /// <summary>
         /// creates timer 
@@ -18,7 +19,7 @@ namespace WindowsFormsApp1
         {
             // reaccurringActions += Movethings
             Timer trytimer = new Timer();
-            trytimer.Interval = 5;
+            trytimer.Interval = intervall;
             trytimer.Tick += new EventHandler(myUpdatingTry);
             trytimer.Start();
         }

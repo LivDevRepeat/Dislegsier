@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FRM_Level_2Layout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRM_Level_2Layout.Designer.cs">
+      <DependentUpon>FRM_Level_2Layout.cs</DependentUpon>
+    </Compile>
     <Compile Include="FRM_Text.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Awnsers.cs" />
     <Compile Include="Updater.cs" />
+    <EmbeddedResource Include="FRM_Level_2Layout.resx">
+      <DependentUpon>FRM_Level_2Layout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FRM_Text.resx">
       <DependentUpon>FRM_Text.cs</DependentUpon>
     </EmbeddedResource>

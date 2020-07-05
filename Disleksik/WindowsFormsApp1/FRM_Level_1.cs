@@ -68,12 +68,16 @@ namespace Disleksia
 
                  case 't':
                     u.updating -= Movethings;
-                    HittingTest(btn_test.Location);
+                  //  HittingTest(btn_test.Location);
                     btn_test.Location = new Point(50, 50);
                     break;
                 case 's':
                     u.updating += Movethings;
                     break;
+                case 'w':
+                    u.updating += WibblWoble;
+                    break;
+
 
             }
 
@@ -138,39 +142,26 @@ namespace Disleksia
             waitingtime--;
 
         }
-
-        
-        public void HittingTest( Point point)
-
+        public void WibblWoble()
         {
-            Wait(100);
-            Point target = new Point(200,200);
-            if (point.X == target.X) 
+            Random r = new Random();
+            r.Next(-1, 2);
+            int j = 0;
+            int i = 100;
+            i--;
+            if (i== 0)
             {
-                lBx_MainWindow.Items.Add(new MyListBoxItem(Color.Black, "Ya get 50 points", ui_Text));
-            }
-            if (point.X >= target.X + 10 && point.X <= target.X+25)
-            {
+                i = 100;
+                j++;
 
-                lBx_MainWindow.Items.Add(new MyListBoxItem(Color.Black, "Yes 20 points a little bit more left would be the jackpod", ui_Text));
             }
-            if (point.X <= target.X  -10 && point.X <= target.X - 25)
-            {
+            lBx_MainWindow.Location = new Point(r.Next(9+j, 15+j), r.Next(190+j, 196+j));
+            
 
-                lBx_MainWindow.Items.Add(new MyListBoxItem(Color.Black, "Yes 20 points", ui_Text));
-            }
-            if (point.X > target.X + 25 )
-            {
-
-                lBx_MainWindow.Items.Add(new MyListBoxItem(Color.Black, "Big OOff not right enough", ui_Text));
-            }
-
-            if (point.X < target.X - 25)
-            {
-
-                lBx_MainWindow.Items.Add(new MyListBoxItem(Color.Black, "Big OOff not left enough", ui_Text));
-            }
         }
+
+      
+        
 
 
         /// <summary>

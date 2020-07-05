@@ -62,16 +62,18 @@
             // 
             // LBX_Awnsers
             // 
+            this.LBX_Awnsers.BackColor = System.Drawing.SystemColors.MenuText;
             this.LBX_Awnsers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LBX_Awnsers.ColumnWidth = 470;
             this.LBX_Awnsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBX_Awnsers.ForeColor = System.Drawing.SystemColors.Window;
             this.LBX_Awnsers.FormattingEnabled = true;
             this.LBX_Awnsers.ItemHeight = 33;
             this.LBX_Awnsers.Items.AddRange(new object[] {
             "Antwort 1",
             "Antwort 2",
             "Antwort 3",
-            "Antword 4"});
+            "Antwort 4"});
             this.LBX_Awnsers.Location = new System.Drawing.Point(12, 498);
             this.LBX_Awnsers.Margin = new System.Windows.Forms.Padding(0);
             this.LBX_Awnsers.MultiColumn = true;
@@ -81,15 +83,16 @@
             this.LBX_Awnsers.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBox1_DrawItem);
             this.LBX_Awnsers.SelectedIndexChanged += new System.EventHandler(this.LBX_Awnsers_SelectedIndexChanged);
             // 
-            // FRM_Level_2
+            // FRM_Text
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 661);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ClientSize = new System.Drawing.Size(999, 699);
             this.Controls.Add(this.LBX_Awnsers);
             this.Controls.Add(this.LBX_MainWindow);
             this.Controls.Add(this.label1);
-            this.Name = "FRM_Level_2";
+            this.Name = "FRM_Text";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dyslekxic";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FRM_Level_1_FormClosing);

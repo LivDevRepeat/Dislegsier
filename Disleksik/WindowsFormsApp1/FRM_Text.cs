@@ -146,7 +146,7 @@ namespace WindowsFormsApp1
             }
             current_awnsers.Clear();
             LBX_MainWindow.Items.Add((new MyListBoxItem(Color.Black,$"'{current_question[current_question_index]}'", font_ui_Text)));
-            foreach (Awnsers awnser in testiscripts)
+            foreach (Awnsers awnser in AwnsersKapitel)
             {
                 if (awnser.Index_of_asked_question == current_question_index)
                 {
@@ -187,7 +187,7 @@ namespace WindowsFormsApp1
 
         //};
 
-        List<Awnsers> testiscripts = new List<Awnsers>()
+        List<Awnsers> AwnsersKapitel = new List<Awnsers>()
         {
             new Awnsers(0,0,1,"Hi"),
 
@@ -256,8 +256,7 @@ namespace WindowsFormsApp1
                             level1.Visible = true;
                             break;
                         case 2:
-                            FRM_Level_2 level2 = new FRM_Level_2();
-                            level2.Visible = true;
+                            //FRM_Level_2 level2 = new FRM_Level_2();
                             break;
                     }
                 }
