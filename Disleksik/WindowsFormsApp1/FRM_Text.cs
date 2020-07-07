@@ -88,7 +88,6 @@ namespace WindowsFormsApp1
          "TEeeeeeeeeeeeeeeat er ist super lang ", //14
 
 
-
         };
 
 
