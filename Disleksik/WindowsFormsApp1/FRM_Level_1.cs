@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using WindowsFormsApp1;
@@ -10,17 +11,41 @@ namespace Disleksia
         Updater u = new Updater();
         Font ui_Text = new Font("Applau", 12, FontStyle.Regular);
         Font player_Text_Handwritten = new Font("ApplauseFont", 22, FontStyle.Bold);
+        string[] words_to_display;
+
+        List<string> words_to_check = new List<string>()
+        {
+            "Ich mag Züge",
+            "Wo sind alle Blumen?",
+            "Wasserhahn ist im Kuchen",
+            "Superkalifragilistischexpialighetische Bananenbrotbacker sind super.",
+            "Rindfleischetikettierungsüberwachungsaufgabenübertragungsgesetz macht mega viel Spaß!"
+        };
+        int current_string_index = 0;
+        string current_string;
 
         public FRM_Level_1()
         {
             InitializeComponent();
 
-            lBx_MainWindow.Items.Add((new MyListBoxItem(Color.DarkSeaGreen, "Du sollst Die Vokabeln mitschreiben", ui_Text)));
+            LBX_MainWindow.Items.Add((new MyListBoxItem(Color.Black, "Du sollst Die Vokabeln mitschreiben", ui_Text)));
+            Display_Seperatet_Words();
+            current_string = words_to_check[current_string_index];
             
             u.Updating();
         }
 
-        
+        public void Display_Seperatet_Words()
+        {
+            foreach(string word in words_to_display)
+            {
+                LBX_MainWindow.Items.Add((new MyListBoxItem(Color.Black, "Du sollst Die Vokabeln mitschreiben", ui_Text)));
+            }
+        }
+        public void Word_Seperation()
+        {
+            words_to_display = current_string.Split((char)32);
+        }
         public class MyListBoxItem
         {
             public MyListBoxItem(Color c, string m, Font f)
@@ -33,11 +58,8 @@ namespace Disleksia
             public string Message { get; set; }
             public Font Fontstyle { get; set; }
         }
- 
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
+         
 
-        }
 
         private void imput_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -49,34 +71,21 @@ namespace Disleksia
                         string outInBox = Wordscramble(imput.Text);
 
                         //listBox1.Items.Add(new MyListBoxItem(Color.DarkBlue, imput.Text, new Font("With My Woes", 12, FontStyle.Bold)));
-                        lBx_MainWindow.Items.Add(new MyListBoxItem(Color.DarkBlue, outInBox, player_Text_Handwritten));
-                        lBx_MainWindow.ItemHeight = 28;
+                        LBX_MainWindow.Items.Add(new MyListBoxItem(Color.DarkBlue, outInBox, player_Text_Handwritten));
+                        LBX_MainWindow.ItemHeight = 28;
                         //lBx_MainWindow.ItemHeight++;
                         // listBox1.Items.Add(new MyListBoxItem(Color.Red, ($"{listBox1.ItemHeight}"), new Font("ApplauseFon", 22, FontStyle.Bold)));
                         // listBox1.Items.Add(imput.Text);
-
-                        if (lBx_MainWindow.Items.Count > 10)
+                        int counter = LBX_MainWindow.Items.Count;
+                        while (counter > 16)
                         {
-                            lBx_MainWindow.Items.RemoveAt(0);
-                            lBx_MainWindow.Items.RemoveAt(1);
-
+                            LBX_MainWindow.Items.RemoveAt(0);
+                            counter = LBX_MainWindow.Items.Count;
                         }
-                        lBx_MainWindow.TopIndex = lBx_MainWindow.Items.Count - 1;
 
                     }
                     break;
 
-                 case 't':
-                    u.updating -= Movethings;
-                  //  HittingTest(btn_test.Location);
-                    btn_test.Location = new Point(50, 50);
-                    break;
-                case 's':
-                    u.updating += Movethings;
-                    break;
-                case 'w':
-                    u.updating += WibblWoble;
-                    break;
 
 
             }
@@ -85,7 +94,7 @@ namespace Disleksia
 
         private void listBox1_DrawItem(object sender, DrawItemEventArgs e)
         {
-            MyListBoxItem item = lBx_MainWindow.Items[e.Index] as MyListBoxItem; // Get the current item and cast it to MyListBoxItem
+            MyListBoxItem item = LBX_MainWindow.Items[e.Index] as MyListBoxItem; // Get the current item and cast it to MyListBoxItem
             if (item != null)
             {
 
@@ -111,37 +120,7 @@ namespace Disleksia
         /// 
         ///  /moves test Button
         /// </summary>
-        public void Movethings()
-        {
-            int i = btn_test.Location.X;
-            i++;
-            btn_test.Location = new Point(i, btn_test.Location.Y);
-            if (btn_test.Location.X >= 600)
-            {
-                btn_test.Location = new Point(600, btn_test.Location.Y);
 
-            }
-
-
-        }
-        private int waitingtime;
-        public void Wait(int inputwaitingtime)
-        {
-            waitingtime = inputwaitingtime;
-            Timer timer = new Timer();
-            timer.Interval = 5;
-            timer.Tick += new EventHandler(WaitingTimer);
-            timer.Start();
-            if (waitingtime == 0)
-            {
-                timer.Stop();
-            }
-        }
-        public void WaitingTimer(object sender, EventArgs e)
-        {
-            waitingtime--;
-
-        }
         public void WibblWoble()
         {
             Random r = new Random();
@@ -155,7 +134,7 @@ namespace Disleksia
                 j++;
 
             }
-            lBx_MainWindow.Location = new Point(r.Next(9+j, 15+j), r.Next(190+j, 196+j));
+            LBX_MainWindow.Location = new Point(r.Next(9+j, 15+j), r.Next(190+j, 196+j));
             
 
         }
@@ -182,8 +161,16 @@ namespace Disleksia
 
                     playerimput = playerimput.Replace('m', 'n');
                     playerimput = playerimput.Replace('z', 'c');
+                    break;
+
+                case 1:
+                    playerimput = playerimput.Replace((char)32, (char)0);
 
                     break;
+                case 2:
+                    playerimput = playerimput.ToLower(); 
+                    break;
+
             }
 
             return playerimput;

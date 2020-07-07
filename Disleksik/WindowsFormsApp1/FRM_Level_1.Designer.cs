@@ -31,7 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.imput = new System.Windows.Forms.TextBox();
             this.btn_test = new System.Windows.Forms.Button();
-            this.lBx_MainWindow = new System.Windows.Forms.ListBox();
+            this.LBX_MainWindow = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.SuspendLayout();
             // 
@@ -66,21 +66,21 @@
             // 
             // lBx_MainWindow
             // 
-            this.lBx_MainWindow.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.lBx_MainWindow.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lBx_MainWindow.CausesValidation = false;
-            this.lBx_MainWindow.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.lBx_MainWindow.HorizontalScrollbar = true;
-            this.lBx_MainWindow.IntegralHeight = false;
-            this.lBx_MainWindow.ItemHeight = 25;
-            this.lBx_MainWindow.Location = new System.Drawing.Point(12, 193);
-            this.lBx_MainWindow.Name = "lBx_MainWindow";
-            this.lBx_MainWindow.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lBx_MainWindow.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.lBx_MainWindow.Size = new System.Drawing.Size(960, 423);
-            this.lBx_MainWindow.TabIndex = 4;
-            this.lBx_MainWindow.TabStop = false;
-            this.lBx_MainWindow.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBox1_DrawItem);
+            this.LBX_MainWindow.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.LBX_MainWindow.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.LBX_MainWindow.CausesValidation = false;
+            this.LBX_MainWindow.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.LBX_MainWindow.HorizontalScrollbar = true;
+            this.LBX_MainWindow.IntegralHeight = false;
+            this.LBX_MainWindow.ItemHeight = 25;
+            this.LBX_MainWindow.Location = new System.Drawing.Point(12, 193);
+            this.LBX_MainWindow.Name = "lBx_MainWindow";
+            this.LBX_MainWindow.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.LBX_MainWindow.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.LBX_MainWindow.Size = new System.Drawing.Size(960, 423);
+            this.LBX_MainWindow.TabIndex = 4;
+            this.LBX_MainWindow.TabStop = false;
+            this.LBX_MainWindow.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBox1_DrawItem);
             // 
             // groupBox1
             // 
@@ -99,7 +99,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(999, 699);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.lBx_MainWindow);
+            this.Controls.Add(this.LBX_MainWindow);
             this.Controls.Add(this.btn_test);
             this.Controls.Add(this.imput);
             this.Controls.Add(this.label1);
@@ -118,7 +118,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_test;
         public System.Windows.Forms.TextBox imput;
-        private System.Windows.Forms.ListBox lBx_MainWindow;
+        private System.Windows.Forms.ListBox LBX_MainWindow;
         private System.Windows.Forms.GroupBox groupBox1;
     }
 }
