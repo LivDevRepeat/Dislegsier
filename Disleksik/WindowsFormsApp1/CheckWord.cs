@@ -21,12 +21,30 @@ namespace WindowsFormsApp1
 
         public int  WordCheck(Point lbl_location)
         {
-            if(lbl_location.Y <= Location.Y+10 && lbl_location.Y >= Location.Y - 10)
+            if(lbl_location.Y >= 50 && lbl_location.Y <= 54)
             {
-                return 1;
+                return 0;
+            }
+            
+            else if(lbl_location.Y >= 42 && lbl_location.Y <= 62)
+            {
+                return 3;
+            }
+            else if (lbl_location.Y >= 32 && lbl_location.Y <= 72)
+            {
+                return 6;
+            }
+            else if (lbl_location.Y >= 22 && lbl_location.Y <= 82)
+            {
+                return 10;
             }
 
-            return 0;
+            else if (lbl_location.Y >= 0 && lbl_location.Y <= 104)
+            {
+                return 20;
+            }
+
+            return 10;
         }
 
 

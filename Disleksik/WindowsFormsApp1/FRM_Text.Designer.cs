@@ -31,6 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.LBX_MainWindow = new System.Windows.Forms.ListBox();
             this.LBX_Awnsers = new System.Windows.Forms.ListBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -51,11 +52,11 @@
             this.LBX_MainWindow.HorizontalScrollbar = true;
             this.LBX_MainWindow.IntegralHeight = false;
             this.LBX_MainWindow.ItemHeight = 25;
-            this.LBX_MainWindow.Location = new System.Drawing.Point(15, 12);
+            this.LBX_MainWindow.Location = new System.Drawing.Point(15, 50);
             this.LBX_MainWindow.Name = "LBX_MainWindow";
             this.LBX_MainWindow.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LBX_MainWindow.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.LBX_MainWindow.Size = new System.Drawing.Size(960, 467);
+            this.LBX_MainWindow.Size = new System.Drawing.Size(960, 429);
             this.LBX_MainWindow.TabIndex = 4;
             this.LBX_MainWindow.TabStop = false;
             this.LBX_MainWindow.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBox1_DrawItem);
@@ -81,18 +82,32 @@
             this.LBX_Awnsers.Size = new System.Drawing.Size(963, 134);
             this.LBX_Awnsers.TabIndex = 5;
             this.LBX_Awnsers.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBox1_DrawItem);
-            this.LBX_Awnsers.SelectedIndexChanged += new System.EventHandler(this.LBX_Awnsers_SelectedIndexChanged);
+            this.LBX_Awnsers.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LBX_Awnsers_KeyPress);
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.Gray;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(951, 12);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(37, 32);
+            this.button4.TabIndex = 6;
+            this.button4.Text = "X";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // FRM_Text
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(999, 699);
+            this.ClientSize = new System.Drawing.Size(1000, 700);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.LBX_Awnsers);
             this.Controls.Add(this.LBX_MainWindow);
             this.Controls.Add(this.label1);
-            this.MinimumSize = new System.Drawing.Size(1015, 738);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MinimumSize = new System.Drawing.Size(1000, 700);
             this.Name = "FRM_Text";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dyslekxic";
@@ -107,6 +122,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox LBX_MainWindow;
         private System.Windows.Forms.ListBox LBX_Awnsers;
+        private System.Windows.Forms.Button button4;
     }
 }
 

@@ -12,6 +12,8 @@ namespace WindowsFormsApp1
         public event Action updating;
         public int intervall = 5;
         public int waitingtime = 0;
+            
+        private  Timer trytimer = new Timer();
         public Updater() { }
         /// <summary>
         /// creates timer 
@@ -19,10 +21,13 @@ namespace WindowsFormsApp1
         public void Updating()
         {
             // reaccurringActions += Movethings
-            Timer trytimer = new Timer();
             trytimer.Interval = intervall;
             trytimer.Tick += new EventHandler(myUpdatingTry);
             trytimer.Start();
+        }
+        public void Stoping()
+        {
+            trytimer.Stop();
         }
         /// <summary>
         /// starts event Action updating
@@ -30,7 +35,7 @@ namespace WindowsFormsApp1
         /// <param name="sender"></param>
         /// <param name="e"></param>
 
-        private void myUpdatingTry(object sender, EventArgs e)
+         void myUpdatingTry(object sender, EventArgs e)
         {
             if (waitingtime!=0)
             {

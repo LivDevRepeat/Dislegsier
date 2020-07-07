@@ -15,6 +15,7 @@ namespace WindowsFormsApp1
         Font font_player_Text_Handwritten_larger = new Font("ApplauseFont", 30, FontStyle.Bold);
         int current_question_index = 0;
         List<Awnsers> current_awnsers = new List<Awnsers>();
+        Form child;
         
        
 
@@ -151,7 +152,6 @@ namespace WindowsFormsApp1
                 if (awnser.Index_of_asked_question == current_question_index)
                 {
                     current_awnsers.Add(awnser);
-                    //LBX_Awnsers.Items.Add((new MyListBoxItem(Color.Blue, awnser.Content, player_Text_Handwritten_larger)));
                     LBX_Awnsers.Items.Add($"'{awnser.Content}'");
                 }
             }
@@ -251,18 +251,66 @@ namespace WindowsFormsApp1
                 {
                     switch (selected_awnser.Index_of_awnser)
                     {
-                        case 1:
-                            FRM_Level_1 level1 = new FRM_Level_1();
-                            level1.Visible = true;
-                            break;
                         case 2:
-                            //FRM_Level_2 level2 = new FRM_Level_2();
+                            child = new FRM_Level_1();
+                            child.Visible = true;
+                            child.Location = this.Location;
+                            break;
+                        case 1:
+                            child  = new FRM_Level_2();
+                            child.Visible = true;
+                            child.Location = this.Location;
                             break;
                     }
                 }
 
             
             }
+        }
+
+        private void LBX_Awnsers_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            switch (e.KeyChar)
+            {
+                case (char)13:
+                    if (LBX_Awnsers.SelectedIndex > -1)
+                    {
+                        Awnsers selected_awnser = current_awnsers[LBX_Awnsers.SelectedIndex];
+                        current_question_index = selected_awnser.Index_of_next_question;
+                        LBX_MainWindow.Items.Add((new MyListBoxItem(Color.Black, $"`{selected_awnser.Content}´", font_player_Text_Handwritten)));
+                        Display_awnsers_and_question();
+                        if (selected_awnser.Index_of_awnser != 0)
+                        {
+                            switch (selected_awnser.Index_of_awnser)
+                            {
+                                case 2:
+                                    child = new FRM_Level_1();
+                                    child.Visible = true;
+                                    child.Location = this.Location;
+                                    break;
+                                case 1:
+                                    child = new FRM_Level_2();
+                                    child.Visible = true;
+                                    child.Location = this.Location;
+                                    break;
+                            }
+                        }
+
+
+                    }
+                    break;
+                case 'w':
+                    LBX_Awnsers.SelectedIndex--;
+                    break;
+                case 's':
+                    LBX_Awnsers.SelectedIndex++;
+                    break;
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

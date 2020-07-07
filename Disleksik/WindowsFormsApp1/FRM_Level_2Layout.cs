@@ -42,8 +42,16 @@ namespace WindowsFormsApp1
             new CheckWord( "finden",    new Point(92,-620) ),
             new CheckWord( "auf",       new Point(203,-660) ),
             new CheckWord( "großen",    new Point(232,-740) ),
-            new CheckWord( "Leute",     new Point(282,-780) )
+            new CheckWord( "Leute",     new Point(282,-780) ),
+            new CheckWord( " ",     new Point(282,-780) )
         };
+
+        public List<Label> mockinglables = new List<Label>()
+        {
+
+        };
+
+
 
 
         public FRM_Level_2Layout(FRM_Level_2 fRM_Level_2)
@@ -57,10 +65,30 @@ namespace WindowsFormsApp1
 
 
             u.intervall = 100;
-            u.updating += Lable_updater;
+            //u.updating += Lable_updater;
             u.updating += GeralUpdatere;
 
             uname.updating += Searched_Word_Display_Updater;
+
+            Random r = new Random();
+   
+            for(int i=0; i<=50; i++)
+            {
+                mockinglables.Add(new Label());
+            }
+
+            foreach(Label label in mockinglables)
+            {
+                label.Visible = false;
+                label.Location = new Point(r.Next(0,this.Size.Width),r.Next(0, this.Size.Height));
+                label.BackColor = Color.White;
+                label.Font = new Font("", 14, FontStyle.Bold);
+                label.ForeColor = Color.Black;
+                label.Text = "'Kannst nicht richtig lesen'";
+                label.AutoSize = true;
+                this.Controls.Add(label);
+                label.BringToFront();
+            }
 
         }
 
@@ -74,8 +102,17 @@ namespace WindowsFormsApp1
 
         public void Searched_Word_Display_Updater()
         {
-    
+            
+        
+            if(words_to_check_index == 20)
+            {
+                
 
+                Updater nu = new Updater();
+                nu.waitingtime = 100;
+                nu.updating += frm_Level_2.Close;
+                nu.Updating();
+            }
             LBL_SearchedWord.Text = $"{words_to_check[words_to_check_index].Content}";
             
 
@@ -128,15 +165,17 @@ namespace WindowsFormsApp1
 
         //     public void Word_LocationCheck;
 
-        public void Lable_updater()
-        {
+        //public void Lable_updater()
+        //{
            
-            label2.Text = $"{ frm_Level_2.PNL_Text.Location}";
-        }
+        //    label2.Text = $"{ frm_Level_2.PNL_Text.Location}";
+        //}
 
         private void FRM_Level_2Layout_FormClosing(object sender, FormClosingEventArgs e)
         {
-            frm_Level_2.Close();
+            
+            u.Stoping();
+            uname.Stoping();
         }
 
         private void FRM_Level_2Layout_Move(object sender, EventArgs e)
@@ -174,9 +213,7 @@ namespace WindowsFormsApp1
                     }
                     break;
                 case (Keys.Enter):
-                    u.updating -= DotheWobbleDobble;
-                    InputValidationCheck();
-                    words_to_check_index++;
+          
 
                     break;
 
@@ -185,10 +222,10 @@ namespace WindowsFormsApp1
 
         }
 
-        public void InputValidationCheck()
-        {
-           label1.Text = $"{words_to_check[words_to_check_index].WordCheck(LBL_SearchedWord.Location)}";
-        }
+        //public void InputValidationCheck()
+        //{
+        //   label1.Text = $"{words_to_check[words_to_check_index].WordCheck(LBL_SearchedWord.Location)}";
+        //}
 
         private void KeyCheck()
         {
@@ -209,5 +246,26 @@ namespace WindowsFormsApp1
         {
             u.updating += DotheWobbleDobble;
         }
+
+
+        //private void button1_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    switch (e.KeyChar)
+        //    {
+        //        case (char)13:
+        //           u.updating -= this.DotheWobbleDobble;
+        //           InputValidationCheck();
+        //           words_to_check_index++;
+        //       break;
+        //        }
+
+
+
+        //    u.updating -= this.DotheWobbleDobble;
+        //    InputValidationCheck();
+        //    words_to_check_index++;
+        //}
+
+
     }
 }

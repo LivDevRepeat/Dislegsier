@@ -14,9 +14,6 @@ namespace WindowsFormsApp1
     public partial class FRM_Level_2 : Form
     {
         Updater u = new Updater();
-
-        private int points;
-
         bool seite = true;
         int moving_counter = 1;
 
@@ -25,6 +22,7 @@ namespace WindowsFormsApp1
         Font font_player_Text_Handwritten = new Font("ApplauseFont", 22, FontStyle.Bold);
         FRM_Level_2Layout layover;
 
+        Point PNLpoinzero { get; set; }
 
         public FRM_Level_2()
         {
@@ -33,14 +31,15 @@ namespace WindowsFormsApp1
             Configuration_Text();
             Configuration_Overlay();
             this.ShowInTaskbar = false;
+            Cursor.Hide();
 
+            u.intervall = 60;
+            u.updating += Mover_Panel;
 
-            u.intervall = 5;
-            u.updating += Mover_Panel;
-            u.updating += Mover_Panel;
-            u.updating += Mover_Panel;
-            u.updating += Mover_Panel;
-  
+            PNL_Kopie.Parent = panel2;
+            PNL_Kopie.Location = PNL_Text.Location;
+      
+            PNLpoinzero = PNL_Text.Location;
 
 
         }
@@ -208,23 +207,37 @@ namespace WindowsFormsApp1
             }
             if (!seite)
             {
-                if (point.X >= 365| moving_counter ==10 )
+                if (point.X >= 433| moving_counter ==10  )
                 {
                     seite = true;
                     moving_counter = 0;
                 }
                 moving_counter++;
-               return  new Point(point.X + 36, point.Y - 4);
+               
+               return  new Point(point.X + 40, point.Y - 4);
 
             }
 
             return point;
         }
 
+        bool moving = true;
+
         public void Mover_Panel()
         {
-            PNL_Text.Location = Mover(PNL_Text.Location);
+
+         //   PNL_Text.Location = Mover(PNL_Text.Location);
+            // for (int i = 10; i== 0; i--)
+            //{
+            PNL_Kopie.Location = Mover(PNL_Kopie.Location);
+            PNL_Text.Location= Shake_it_like_a_polariod_picture(0,
+                PNL_Kopie.Location);
+            PNLpoinzero = PNL_Kopie.Location; 
+
+           // PNL_Text.Location = layover.words_to_check[layover.words_to_check_index].-Location;
             Halt_At_Word();
+
+            //}
             
         }
 
@@ -253,6 +266,8 @@ namespace WindowsFormsApp1
         private void FRM_Level_2_FormClosing(object sender, FormClosingEventArgs e)
         {
             layover.Close();
+            u.Stoping();
+            Gametatus.Gamestatus = 0;
             
         }
 
@@ -265,17 +280,12 @@ namespace WindowsFormsApp1
 
         private void Halt_At_Word()
         {
-            //if ( layover.words_to_check[layover.words_to_check_index].WordCheck(LBX_Text.Location) == 1) 
-            //{
 
-
-            //};
-            if (PNL_Text.Location == layover.words_to_check[layover.words_to_check_index].Location)
+            if (PNL_Kopie.Location == layover.words_to_check[layover.words_to_check_index].Location)
             {
+                moving = false;
                 u.updating -= Mover_Panel;
-                u.updating -= Mover_Panel;
-                u.updating -= Mover_Panel;
-                u.updating -= Mover_Panel;
+       
                 layover.u.updating += layover.DotheWobbleDobble;
                 
 
@@ -289,6 +299,7 @@ namespace WindowsFormsApp1
             LBX_Text_Items_Adder();
             LBX_Text.Size = new Size(600, (LBX_Text.Items.Count * LBX_Text.ItemHeight));
             PNL_Text.Size = new Size(640, LBX_Text.Size.Height + 40);
+            PNL_Kopie.Size = new Size(640, LBX_Text.Size.Height + 40);
             LBX_Text.Location = new Point(20, 20);
 
         }
@@ -340,6 +351,175 @@ namespace WindowsFormsApp1
             layover.Visible = true;
             layover.TopMost = true;
             layover.Location = this.Location;
+        }
+
+        private void input(object sender, KeyPressEventArgs e)
+        {
+
+            switch (e.KeyChar)
+            {
+                case (char)13:
+                    InputCheck();
+                    break;
+
+            }
+
+
+        }
+
+      
+
+        public Point Shake_it_like_a_polariod_picture(int shakefactor, Point location) 
+        {
+            Random random = new Random();
+            return new Point(PNLpoinzero.X + (random.Next(-shakefactor, shakefactor)), PNLpoinzero.Y + (random.Next(-shakefactor, shakefactor)));
+            
+        
+        }
+
+       
+       public void InputCheck()
+        {
+            if(moving == false)
+            {
+             layover.u.updating -= layover.DotheWobbleDobble;
+             Gametatus.Gamestatus = Gametatus.Gamestatus + layover.words_to_check[layover.words_to_check_index].WordCheck(layover.LBL_SearchedWord.Location);
+          
+                Gamestatuscheck();
+
+                layover.words_to_check_index++;
+                moving = true;
+
+            }
+
+           
+
+
+        }
+
+        public void Gamestatuscheck()
+        {
+            u.updating += Mover_Panel;
+            if (Gametatus.Gamestatus >= 80)
+            {
+                u.intervall = 1;
+                u.updating += OoofSize15;
+                u.updating -= OoofSize4;
+
+
+                return;
+            }
+
+            
+            if (Gametatus.Gamestatus >= 60 )
+            {
+                u.intervall = 5;
+                u.updating += OoofSize4;
+                u.updating -= OoofSize3;
+                return;
+            }
+
+            if (Gametatus.Gamestatus >= 40)
+            {
+                u.intervall = 20;
+                u.updating += OoofSize3;
+                u.updating -= OoofSize2;
+                                            
+                return;
+            }
+            if (Gametatus.Gamestatus >= 15)
+            {
+                u.intervall = 30;
+                u.updating += OoofSize2;
+                u.updating -= OoofSize1;
+                return;
+            }
+
+            if (Gametatus.Gamestatus >= 3)
+            {
+                u.intervall = 60;
+                u.updating += OoofSize1;
+                return;
+            }          
+            
+
+
+
+        }
+ 
+
+        public void OoofSize1()
+        {
+            
+            PNL_Text.Location = Shake_it_like_a_polariod_picture(1, PNL_Text.Location);
+
+
+        }    
+        public void OoofSize2()
+        {
+            
+            PNL_Text.Location = Shake_it_like_a_polariod_picture(5, PNL_Text.Location);
+            layover.mockinglables[1].Visible = true;
+            layover.mockinglables[2].Visible = true;
+            layover.mockinglables[3].Visible = true;
+            layover.mockinglables[4].Visible = true;
+
+
+
+
+        }       
+        public void OoofSize3()
+        {
+            
+            PNL_Text.Location = Shake_it_like_a_polariod_picture(20, PNL_Text.Location);
+            layover.mockinglables[5].Visible = true;
+            layover.mockinglables[6].Visible = true;
+            layover.mockinglables[7].Visible = true;
+            layover.mockinglables[8].Visible = true;
+            layover.mockinglables[9].Visible = true;
+            layover.mockinglables[10].Visible = true;
+            layover.mockinglables[11].Visible = true;
+            layover.mockinglables[12].Visible = true; 
+            layover.mockinglables[13].Visible = true;
+
+
+        }       
+        public void OoofSize4()
+        {
+            
+            PNL_Text.Location = Shake_it_like_a_polariod_picture(50, PNL_Text.Location);
+            layover.mockinglables[14].Visible = true;
+            layover.mockinglables[15].Visible = true;
+            layover.mockinglables[16].Visible = true; 
+            layover.mockinglables[17].Visible = true;
+            layover.mockinglables[18].Visible = true;
+            layover.mockinglables[19].Visible = true;
+            layover.mockinglables[20].Visible = true;
+            layover.mockinglables[21].Visible = true;
+            layover.mockinglables[22].Visible = true; 
+            layover.mockinglables[23].Visible = true;
+            layover.mockinglables[24].Visible = true;
+            layover.mockinglables[25].Visible = true;
+
+        }
+        public void OoofSize15()
+        {
+           for(int i =26; i <= 50;i++)
+            {
+                layover.mockinglables[i].Visible = true;
+            }
+
+            PNL_Text.Location = Shake_it_like_a_polariod_picture(200, PNL_Text.Location);
+            Updater nu = new Updater();
+            nu.waitingtime = 100;
+            nu.updating += this.Close;
+            nu.Updating();
+
+        }
+
+        private void PNL_Kopie_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
