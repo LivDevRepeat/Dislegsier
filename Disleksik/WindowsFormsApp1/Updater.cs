@@ -7,10 +7,11 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    class Updater
+    public class Updater
     {
         public event Action updating;
-        public int intervall = 5; 
+        public int intervall = 5;
+        public int waitingtime = 0;
         public Updater() { }
         /// <summary>
         /// creates timer 
@@ -31,7 +32,15 @@ namespace WindowsFormsApp1
 
         private void myUpdatingTry(object sender, EventArgs e)
         {
+            if (waitingtime!=0)
+            {
+                waitingtime--;
+                return;
+            }
             updating?.Invoke();
         }
+
+
+        
     }
 }

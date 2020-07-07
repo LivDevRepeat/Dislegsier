@@ -92,6 +92,7 @@
             this.Controls.Add(this.LBX_Awnsers);
             this.Controls.Add(this.LBX_MainWindow);
             this.Controls.Add(this.label1);
+            this.MinimumSize = new System.Drawing.Size(1015, 738);
             this.Name = "FRM_Text";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dyslekxic";

@@ -103,6 +103,7 @@
             this.Controls.Add(this.btn_test);
             this.Controls.Add(this.imput);
             this.Controls.Add(this.label1);
+            this.MaximumSize = new System.Drawing.Size(1015, 738);
             this.Name = "FRM_Level_1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dyslekxic";

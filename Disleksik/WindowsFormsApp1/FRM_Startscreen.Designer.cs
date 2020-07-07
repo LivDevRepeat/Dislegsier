@@ -68,8 +68,12 @@
             this.Controls.Add(this.LBL_MainName);
             this.Controls.Add(this.BTN_Exit);
             this.Controls.Add(this.BTN_Start);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximizeBox = false;
             this.Name = "FRM_Startscreen";
+            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.Load += new System.EventHandler(this.FRM_Startscreen_Load);
+            this.Move += new System.EventHandler(this.FRM_Startscreen_Move);
             this.ResumeLayout(false);
             this.PerformLayout();
 

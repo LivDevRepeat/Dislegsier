@@ -74,34 +74,34 @@ namespace WindowsFormsApp1
 
         private void imput_KeyPress(object sender, KeyPressEventArgs e)
         {
-            switch (e.KeyChar)
-            {
-                //case (char)13:
-                //    if (imput.Text != "")
-                //    {
-                //        string outInBox = Wordscramble(imput.Text);
+        //    switch (e.KeyChar)
+        //    {
+        //        //case (char)13:
+        //        //    if (imput.Text != "")
+        //        //    {
+        //        //        string outInBox = Wordscramble(imput.Text);
 
-                //        //listBox1.Items.Add(new MyListBoxItem(Color.DarkBlue, imput.Text, new Font("With My Woes", 12, FontStyle.Bold)));
-                //        lBx_MainWindow.Items.Add(new MyListBoxItem(Color.DarkBlue, outInBox, player_Text_Handwritten));
-                //        lBx_MainWindow.ItemHeight = 28;
-                //        //lBx_MainWindow.ItemHeight++;
-                //        // listBox1.Items.Add(new MyListBoxItem(Color.Red, ($"{listBox1.ItemHeight}"), new Font("ApplauseFon", 22, FontStyle.Bold)));
-                //        // listBox1.Items.Add(imput.Text);
+        //        //        //listBox1.Items.Add(new MyListBoxItem(Color.DarkBlue, imput.Text, new Font("With My Woes", 12, FontStyle.Bold)));
+        //        //        lBx_MainWindow.Items.Add(new MyListBoxItem(Color.DarkBlue, outInBox, player_Text_Handwritten));
+        //        //        lBx_MainWindow.ItemHeight = 28;
+        //        //        //lBx_MainWindow.ItemHeight++;
+        //        //        // listBox1.Items.Add(new MyListBoxItem(Color.Red, ($"{listBox1.ItemHeight}"), new Font("ApplauseFon", 22, FontStyle.Bold)));
+        //        //        // listBox1.Items.Add(imput.Text);
 
-                //        if (lBx_MainWindow.Items.Count > 10)
-                //        {
-                //            lBx_MainWindow.Items.RemoveAt(0);
-                //            lBx_MainWindow.Items.RemoveAt(1);
+        //        //        if (lBx_MainWindow.Items.Count > 10)
+        //        //        {
+        //        //            lBx_MainWindow.Items.RemoveAt(0);
+        //        //            lBx_MainWindow.Items.RemoveAt(1);
 
-                //        }
-                //        lBx_MainWindow.TopIndex = lBx_MainWindow.Items.Count - 1;
+        //        //        }
+        //        //        lBx_MainWindow.TopIndex = lBx_MainWindow.Items.Count - 1;
 
-                //    }
-                //    break;
+        //        //    }
+        //        //    break;
 
 
 
-            }
+        //    }
 
         }
 

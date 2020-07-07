@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.LBX_Text = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,21 +41,11 @@
             this.PNL_Text.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(12, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(414, 112);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Okay";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(455, 0);
+            this.button2.Location = new System.Drawing.Point(280, 12);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(414, 112);
+            this.button2.Size = new System.Drawing.Size(262, 112);
             this.button2.TabIndex = 9;
             this.button2.Text = "Okay aber besser";
             this.button2.UseVisualStyleBackColor = true;
@@ -64,19 +55,41 @@
             // 
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 699);
+            this.splitter1.Size = new System.Drawing.Size(3, 700);
             this.splitter1.TabIndex = 11;
             this.splitter1.TabStop = false;
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.button4);
+            this.panel3.Controls.Add(this.button3);
             this.panel3.Controls.Add(this.groupBox1);
             this.panel3.Controls.Add(this.button2);
-            this.panel3.Controls.Add(this.button1);
-            this.panel3.Location = new System.Drawing.Point(0, 12);
+            this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(953, 143);
+            this.panel3.Size = new System.Drawing.Size(996, 213);
             this.panel3.TabIndex = 12;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.Gray;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(956, 3);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(37, 32);
+            this.button4.TabIndex = 12;
+            this.button4.Text = "X";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(548, 12);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(262, 112);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "Ksen";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -127,15 +140,19 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ClientSize = new System.Drawing.Size(999, 699);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.PNL_Text);
+            this.ClientSize = new System.Drawing.Size(1000, 700);
             this.Controls.Add(this.panel3);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.splitter1);
+            this.Controls.Add(this.PNL_Text);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximumSize = new System.Drawing.Size(1000, 700);
             this.Name = "FRM_Level_2";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "LVL2";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FRM_Level_2_FormClosing);
             this.Load += new System.EventHandler(this.FRM_Level_2_Load);
+            this.Move += new System.EventHandler(this.FRM_Level_2_Move);
             this.panel3.ResumeLayout(false);
             this.PNL_Text.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -144,13 +161,14 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.ListBox LBX_Text;
+        public  System.Windows.Forms.ListBox LBX_Text;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel PNL_Text;
+        public  System.Windows.Forms.Panel PNL_Text;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }

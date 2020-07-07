@@ -14,66 +14,35 @@ namespace WindowsFormsApp1
     public partial class FRM_Level_2 : Form
     {
         Updater u = new Updater();
-        Point test1 = new Point();
-       // Font font_test = new Font();
+
+        private int points;
+
+        bool seite = true;
+        int moving_counter = 1;
+
         Font font_ui_Text = new Font("Applau", 20, FontStyle.Regular);
         Font font_ui_Text_Tiny = new Font("Applau", 11, FontStyle.Regular);
         Font font_player_Text_Handwritten = new Font("ApplauseFont", 22, FontStyle.Bold);
+        FRM_Level_2Layout layover;
+
 
         public FRM_Level_2()
         {
             InitializeComponent();
-           // u.intervall = 100;
             u.Updating();
-            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "12.03.14,", font_ui_Text_Tiny));
-            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "", font_ui_Text_Tiny));
-            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "", font_ui_Text_Tiny));
-            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "", font_ui_Text_Tiny));
-            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "      Kafka", font_ui_Text));
-            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "", font_ui_Text_Tiny));
-            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          Es war sehr früh am Morgen,", font_ui_Text));
-            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          Es war sehr früh am Morgen,", font_ui_Text));
-            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          Es war sehr früh am Morgen,", font_ui_Text));
-            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          Es war sehr früh am Morgen,", font_ui_Text));
-            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          die Straßen rein und leer,", font_ui_Text));
-            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          ich ging zum Bahnhof.", font_ui_Text));
-            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          ich ging zum Bahnhof.", font_ui_Text));
-            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          ich ging zum Bahnhof.", font_ui_Text));
-            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          ich ging zum Bahnhof.", font_ui_Text));
-            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          ich ging zum Bahnhof.", font_ui_Text));
-            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          ich ging zum Bahnhof.", font_ui_Text));
-            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          ich ging zum Bahnhof.", font_ui_Text));
-            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          ich ging zum Bahnhof.", font_ui_Text));
-            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          ich ging zum Bahnhof.", font_ui_Text));
-            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          ich ging zum Bahnhof.", font_ui_Text));
-            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          ich ging zum Bahnhof.", font_ui_Text));
-            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          ich ging zum Bahnhof.", font_ui_Text));
-            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          ich ging zum Bahnhof.", font_ui_Text));
-            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          ich ging zum Bahnhof.", font_ui_Text));
-            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          ich ging zum Bahnhof.", font_ui_Text));
-            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          ich ging zum Bahnhof.", font_ui_Text));
-            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          ich ging zum Bahnhof.", font_ui_Text));
-            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          ich ging zum Bahnhof.", font_ui_Text));
-            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          ich ging zum Bahnhof.", font_ui_Text));
-            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          ich ging zum Bahnhof.", font_ui_Text));
-            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          ich ging zum Bahnhof.", font_ui_Text));
-            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          ich ging zum Bahnhof.", font_ui_Text));
-            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          ich ging zum Bahnhof.", font_ui_Text));
-            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          ich ging zum Bahnhof.", font_ui_Text));
-            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          ich ging zum Bahnhof.", font_ui_Text));
-            LBX_Text.Size = new Size(600, (LBX_Text.Items.Count * LBX_Text.ItemHeight));
-            PNL_Text.Size =new Size ( 640,LBX_Text.Size.Height +40);
-            LBX_Text.Location = new Point(20, 20);
-            
-
-            //this.TransparencyKey = panel3.BackColor ;
-            FRM_Level_2Layout layover = new FRM_Level_2Layout();
-            layover.Visible = true;
-            layover.TopMost = true;
+            Configuration_Text();
+            Configuration_Overlay();
+            this.ShowInTaskbar = false;
 
 
-//
-// "))
+            u.intervall = 5;
+            u.updating += Mover_Panel;
+            u.updating += Mover_Panel;
+            u.updating += Mover_Panel;
+            u.updating += Mover_Panel;
+  
+
+
         }
         public class MyListBoxItem
         {
@@ -118,7 +87,7 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Environment.Exit(0);
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
@@ -133,11 +102,7 @@ namespace WindowsFormsApp1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            u.updating += Mover_Panel;
-          //  u.updating += Mover_Listbox;
-            u.updating += Label_Wobbel;
-            //  u.updating += DotheWobble;
-            //layover
+
           
         }
 
@@ -223,10 +188,8 @@ namespace WindowsFormsApp1
         //        u.updating -= DothemovingY;
         //    }
         //}  
+         
 
-
-
-        bool seite = true;           
         public Point Mover(Point point)
         {
 
@@ -234,22 +197,24 @@ namespace WindowsFormsApp1
             if (seite )
             {
                 
-                if (point.X <= 35)
+                if (point.X <= 33)
                 {
                     seite = false;
                 }
                 
-                return new Point(point.X - 3, point.Y);
+                return new Point(point.X - 1, point.Y);
 
 
             }
             if (!seite)
             {
-                if (point.X >= 365)
+                if (point.X >= 365| moving_counter ==10 )
                 {
                     seite = true;
+                    moving_counter = 0;
                 }
-               return  new Point(point.X + 33, point.Y - 4);
+                moving_counter++;
+               return  new Point(point.X + 36, point.Y - 4);
 
             }
 
@@ -259,6 +224,8 @@ namespace WindowsFormsApp1
         public void Mover_Panel()
         {
             PNL_Text.Location = Mover(PNL_Text.Location);
+            Halt_At_Word();
+            
         }
 
         public void Mover_Listbox()
@@ -277,6 +244,102 @@ namespace WindowsFormsApp1
 
         }
 
+        private void FRM_Level_2_Move(object sender, EventArgs e)
+        {
+            layover.Location = this.Location;
+           
+        }
 
+        private void FRM_Level_2_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            layover.Close();
+            
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            
+            Environment.Exit(0);
+
+        }
+
+        private void Halt_At_Word()
+        {
+            //if ( layover.words_to_check[layover.words_to_check_index].WordCheck(LBX_Text.Location) == 1) 
+            //{
+
+
+            //};
+            if (PNL_Text.Location == layover.words_to_check[layover.words_to_check_index].Location)
+            {
+                u.updating -= Mover_Panel;
+                u.updating -= Mover_Panel;
+                u.updating -= Mover_Panel;
+                u.updating -= Mover_Panel;
+                layover.u.updating += layover.DotheWobbleDobble;
+                
+
+            }
+
+
+        }
+
+        private void Configuration_Text()
+        {
+            LBX_Text_Items_Adder();
+            LBX_Text.Size = new Size(600, (LBX_Text.Items.Count * LBX_Text.ItemHeight));
+            PNL_Text.Size = new Size(640, LBX_Text.Size.Height + 40);
+            LBX_Text.Location = new Point(20, 20);
+
+        }
+        private void LBX_Text_Items_Adder()
+        {
+            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "12.03.14,", font_ui_Text_Tiny));
+            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "", font_ui_Text_Tiny));
+            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "", font_ui_Text_Tiny));
+            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "", font_ui_Text_Tiny));
+            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "      Kafka", font_ui_Text));
+            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "", font_ui_Text_Tiny));
+            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          Es war sehr früh am Morgen,", font_ui_Text));
+            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          die Straßen rein und leer,", font_ui_Text));
+            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          ich ging zum Bahnhof.", font_ui_Text));
+            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          Als ich eine Turmuhr", font_ui_Text));
+            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          mit meiner Uhr verglich, ", font_ui_Text));
+            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          sah ich, dass es schon viel später war,", font_ui_Text));
+            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          als ich geglaubt hatte,", font_ui_Text));
+            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          ich musste mich sehr beeilen,", font_ui_Text));
+            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          der Schrecken über diese Entdeckung", font_ui_Text));
+            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          ließ mich im Weg unsicher werden, ", font_ui_Text));
+            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          ich kannte mich in dieser Stadt", font_ui_Text));
+            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          noch nicht sehr gut aus,", font_ui_Text));
+            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          glücklicherweise war ein", font_ui_Text));
+            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          Schutzmann in der Nähe, ", font_ui_Text));
+            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          ich lief zu ihm und", font_ui_Text));
+            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          Er lächelte und sagte: ", font_ui_Text));
+            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          'Von mir willst du den Weg erfahren ?' ", font_ui_Text));
+            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          'Ja', sagte ich,", font_ui_Text));
+            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          'da ich ihn selbst nicht finden kann.'", font_ui_Text));
+            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          'Gibs auf, gibs auf',", font_ui_Text));
+            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          sagte er und wandte sich", font_ui_Text));
+            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          mit einem großen Schwunge ab,", font_ui_Text));
+            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          so wie Leute, die ", font_ui_Text));
+            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "          mit ihrem Lachen allein sein wollen.", font_ui_Text));
+            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "", font_ui_Text));
+            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "", font_ui_Text));
+            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "", font_ui_Text));
+            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "", font_ui_Text));
+            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "", font_ui_Text));
+            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "", font_ui_Text));
+            LBX_Text.Items.Add(new MyListBoxItem(Color.DarkGray, "", font_ui_Text));
+        }
+
+        private void Configuration_Overlay()
+        {
+
+            layover = new FRM_Level_2Layout(this);
+            layover.Visible = true;
+            layover.TopMost = true;
+            layover.Location = this.Location;
+        }
     }
 }

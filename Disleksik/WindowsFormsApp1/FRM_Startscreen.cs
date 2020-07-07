@@ -18,15 +18,17 @@ namespace WindowsFormsApp1
             InitializeComponent();
 
         }
-
+        Form child;
         private void BTN_Start_Click(object sender, EventArgs e)
         {
             
             //FRM_Text Text = new FRM_Text();
             //Text.Visible = true;
 
-            FRM_Level_2 level_2 = new FRM_Level_2();
-            level_2.Visible = true;
+            child  = new FRM_Level_2();
+            child.Location = this.Location;
+            child.Visible = true;
+           // this.Visible = false;
         }
 
         private void BTN_Exit_Click(object sender, EventArgs e)
@@ -37,6 +39,17 @@ namespace WindowsFormsApp1
         private void FRM_Startscreen_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void FRM_Startscreen_Move(object sender, EventArgs e)
+        {
+            if (child!= null)
+            {
+
+                child.Location = this.Location;
+                child.TopLevel = true;
+
+            }
         }
     }
 }

@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckWord.cs" />
     <Compile Include="FRM_Level_2Layout.cs">
       <SubType>Form</SubType>
     </Compile>
