@@ -89,11 +89,41 @@ namespace WindowsFormsApp1
 
 
         };
+        List<Awnsers> Awnsers_Kapite_1 = new List<Awnsers>()
+        { 
+        
+        };
+
+
+        List<string> Questions_Kapite_1 = new List<string>()
+        {
+        };
+
+        List<Awnsers> Awnsers_Kapite_2 = new List<Awnsers>()
+        {
+
+        };
+
+
+        List<string> Questions_Kapite_2 = new List<string>()
+        {
+
+        };
+        
+        List<Awnsers> Awnsers_Kapite_3 = new List<Awnsers>()
+        {
+
+        };
+
+
+        List<string> Questions_Kapite_3 = new List<string>()
+        {
+        };
 
 
 
 
-       
+
         List<Awnsers> current_Awnserlist ;
         List<string> current_Questionlist ;
 
@@ -101,10 +131,10 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
 
-            //   current_Awnserlist.AddRange(Awnsers_Test);
+        
             current_Awnserlist = Awnsers_Test;
             current_Questionlist = (Questions_Test);
-           // LBX_MainWindow.Items.Add((new MyListBoxItem(Color.DarkSeaGreen, "Du sollst Die Vokabeln mitschreiben", font_ui_Text)));
+        
            
             updater.Updating();
             Display_awnsers_and_question();
