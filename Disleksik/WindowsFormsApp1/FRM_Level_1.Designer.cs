@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.imput = new System.Windows.Forms.TextBox();
-            this.btn_test = new System.Windows.Forms.Button();
+            this.TBX_Input = new System.Windows.Forms.TextBox();
             this.LBX_MainWindow = new System.Windows.Forms.ListBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -44,70 +44,75 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
             // 
-            // imput
+            // TBX_Input
             // 
-            this.imput.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.imput.Location = new System.Drawing.Point(0, 679);
-            this.imput.Name = "imput";
-            this.imput.Size = new System.Drawing.Size(999, 20);
-            this.imput.TabIndex = 1;
-            this.imput.Text = "test test";
-            this.imput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.imput_KeyPress);
+            this.TBX_Input.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TBX_Input.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBX_Input.Location = new System.Drawing.Point(15, 595);
+            this.TBX_Input.Name = "TBX_Input";
+            this.TBX_Input.Size = new System.Drawing.Size(970, 19);
+            this.TBX_Input.TabIndex = 1;
+            this.TBX_Input.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.imput_KeyPress);
             // 
-            // btn_test
-            // 
-            this.btn_test.Location = new System.Drawing.Point(50, 50);
-            this.btn_test.Name = "btn_test";
-            this.btn_test.Size = new System.Drawing.Size(137, 68);
-            this.btn_test.TabIndex = 2;
-            this.btn_test.Text = "Test";
-            this.btn_test.UseVisualStyleBackColor = true;
-            this.btn_test.Click += new System.EventHandler(this.btn_test_Click);
-            // 
-            // lBx_MainWindow
+            // LBX_MainWindow
             // 
             this.LBX_MainWindow.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.LBX_MainWindow.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.LBX_MainWindow.CausesValidation = false;
+            this.LBX_MainWindow.ColumnWidth = 470;
             this.LBX_MainWindow.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.LBX_MainWindow.HorizontalScrollbar = true;
             this.LBX_MainWindow.IntegralHeight = false;
             this.LBX_MainWindow.ItemHeight = 25;
-            this.LBX_MainWindow.Location = new System.Drawing.Point(12, 193);
-            this.LBX_MainWindow.Name = "lBx_MainWindow";
+            this.LBX_MainWindow.Location = new System.Drawing.Point(15, 50);
+            this.LBX_MainWindow.Name = "LBX_MainWindow";
             this.LBX_MainWindow.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.LBX_MainWindow.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.LBX_MainWindow.Size = new System.Drawing.Size(960, 423);
+            this.LBX_MainWindow.Size = new System.Drawing.Size(960, 429);
             this.LBX_MainWindow.TabIndex = 4;
             this.LBX_MainWindow.TabStop = false;
             this.LBX_MainWindow.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBox1_DrawItem);
             // 
-            // groupBox1
+            // label2
             // 
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox1.Location = new System.Drawing.Point(200, 50);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(50, 50);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Control;
+            this.label2.Location = new System.Drawing.Point(801, 109);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(111, 20);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "FEHLER :     0";
+            this.label2.Visible = false;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.Gray;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(951, 12);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(37, 32);
+            this.button4.TabIndex = 7;
+            this.button4.Text = "X";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // FRM_Level_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(999, 699);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(1000, 700);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.LBX_MainWindow);
-            this.Controls.Add(this.btn_test);
-            this.Controls.Add(this.imput);
+            this.Controls.Add(this.TBX_Input);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximumSize = new System.Drawing.Size(1015, 738);
             this.Name = "FRM_Level_1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dyslekxic";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FRM_Level_1_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,10 +121,10 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btn_test;
-        public System.Windows.Forms.TextBox imput;
+        public System.Windows.Forms.TextBox TBX_Input;
         private System.Windows.Forms.ListBox LBX_MainWindow;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button4;
     }
 }
 
