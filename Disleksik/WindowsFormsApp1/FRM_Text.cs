@@ -22,7 +22,7 @@ namespace WindowsFormsApp1
         /// </summary>
         List<Awnsers> Awnsers_Test = new List<Awnsers>()
         {
-            new Awnsers(0,0,9,"Hi"),
+            new Awnsers(0,0,1,"Hi"),
 
             new Awnsers(1,0,2,"I'm pretty bad"),
             new Awnsers(1,0,3,"I´m really good"),
@@ -80,23 +80,51 @@ namespace WindowsFormsApp1
          "Wow was it? ",// 6
          "No worries just tell me once you are",//7
          "Thats Good to know ready for level 2?",//8
-         "Yeeeeeeeeeeeeeeeeeeeet", //9
-         "Yeet",//10
-         "Teeeeeeeeeeeeeeeast1", //11
-         "TEeeeeeeeeeeeeeeat ich habe einen Großen text.....................................................................................................--.......maxländge", //12
-         "TEeeeeeeeeeeeeeeat", //13
-         "TEeeeeeeeeeeeeeeat er ist super lang ", //14
-
 
         };
         List<Awnsers> Awnsers_Kapite_1 = new List<Awnsers>()
-        { 
-        
+        {
+        new Awnsers(5,0,6,"..."),
+        new Awnsers(5,0,7,"Wie bitte Frau Brandt?"),
+        new Awnsers(8,0,9,"Naja, zusammengfast sind Parabeln epische Kurzformen, die zur Veranschaulichung eines Gedanken dienen."),
+        new Awnsers(8,0,9,"Alsooo..."),
+        new Awnsers(8,0,9,"Natürlich..."),
+        new Awnsers(9,0,10,"Klar, ich muss nur..."),
+        new Awnsers(9,0,10,"Ja, warten sie bitte kurz..."),
+        new Awnsers(11,0,12,"Seite:113"),
+        new Awnsers(11,0,12,"Seite:117"),
+        new Awnsers(11,0,12,"Seite:121"),
+        new Awnsers(12,0,13,"Seite:125"),
+        new Awnsers(12,0,13,"Seite:129"),
+        new Awnsers(12,0,13,"Seite:133"),
+        new Awnsers(13,0,14,"Seite:137"),
+        new Awnsers(13,0,14,"Seite:141"),
+        new Awnsers(13,0,14,"Seite:145"),
+        new Awnsers(15,0,16,"*flüsternd* Danke ERIK."),
+        new Awnsers(15,1,17,"Ok... ehem... 'GIBS AUF' von Franz Kafka aus dem Jahr 1922."),
+        new Awnsers(16,1,17,"Ok... ehem... 'GIBS AUF' von Franz Kafka aus dem Jahr 1922."),
         };
 
 
         List<string> Questions_Kapite_1 = new List<string>()
         {
+         "Die Stunde ist im vollen Gange",//0
+         "und alle Mitschüler schauen vertieft in ihre Lehrbücher.",//1
+         "Nur JACOB lässt den Blick aus dem Fenster schweifen.", //2
+         "Der Himmel ist klar mit einer aufgelößten Horde einzelner Kummulus Wolken, ",//3
+         "und die Linden am Friedhof tanzen zum Rhytmus des Windes.",//4
+         "???:'JACOB... ",//5+
+         "JACOB!'",//6+
+         "FRAU BRANDT:'Hast du bereits den Sachtext gelesen?",//7
+         "Oder hast du wieder nur Löcher in die Luft gestart?'",//8+
+         "FRAU BRANDT:'Okey, dann ließ doch bitte gleich die Parabel von Kafka aus der ersten Aufgabe vor.'",//9+
+         "*flüsternd*",//10
+         "'Scheiße, auf welcher Seite waren wir noch mal?'",//11+
+         "'Nein...'",//12+
+         "'Nein... Nein...'",//13+
+         "Wärend des herum plätterns wird ein aufgeschlagenes Buch in JACOBS Sichtfelt geschoben,",//14
+         "und es ist auf der SEITE:123 mit der Parabel von Kafka aufgeschlagen.",//15+
+         "Nun ließ schon du Holzkopf.",//16+
         };
 
         List<Awnsers> Awnsers_Kapite_2 = new List<Awnsers>()
@@ -133,7 +161,7 @@ namespace WindowsFormsApp1
 
         
             current_Awnserlist = Awnsers_Test;
-            current_Questionlist = (Questions_Test);
+            current_Questionlist = Questions_Test;
         
            
             updater.Updating();
