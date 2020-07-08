@@ -11,40 +11,60 @@ namespace Disleksia
         Updater u = new Updater();
         Font ui_Text = new Font("Applau", 12, FontStyle.Regular);
         Font player_Text_Handwritten = new Font("ApplauseFont", 22, FontStyle.Bold);
-        string[] words_to_display;
+       string[] words_to_display;
+        int Fehler = 0;
 
-        List<string> words_to_check = new List<string>()
+       string[]  words_to_check =
         {
-            "Ich mag Züge",
-            "Wo sind alle Blumen?",
-            "Wasserhahn ist im Kuchen",
-            "Superkalifragilistischexpialighetische Bananenbrotbacker sind super.",
-            "Rindfleischetikettierungsüberwachungsaufgabenübertragungsgesetz macht mega viel Spaß!"
+            "Ich mag Züge edfgfd",
+            "Wo sind alle Blumen? efdgfd",
+            "Wasserhahn ist im Kuchen ",
+            "Superkalifragilistischexpialighetische Bananenbrotbacker sind super. e",
+            "Rindfleischetikettierungsüberwachungsaufgabenübertragungsgesetz macht mega viel Spaß! e"
         };
+        int current_word_index =0 ;
         int current_string_index = 0;
         string current_string;
-
+        
         public FRM_Level_1()
         {
             InitializeComponent();
 
             LBX_MainWindow.Items.Add((new MyListBoxItem(Color.Black, "Du sollst Die Vokabeln mitschreiben", ui_Text)));
-            Display_Seperatet_Words();
-            current_string = words_to_check[current_string_index];
             
+            current_string = words_to_check[current_string_index];
+            Word_Seperation();
+            Display_Seperatet_Words();
             u.Updating();
+
         }
 
         public void Display_Seperatet_Words()
         {
-            foreach(string word in words_to_display)
+            LBX_MainWindow.Items.Add((new MyListBoxItem(Color.Black, words_to_display[current_word_index], ui_Text)));
+
+            if (current_word_index == words_to_display.Length-1)
             {
+                LBX_MainWindow.Items.Clear();
                 LBX_MainWindow.Items.Add((new MyListBoxItem(Color.Black, "Du sollst Die Vokabeln mitschreiben", ui_Text)));
+                current_word_index = 0;
+                current_string_index++;
+                current_string = words_to_check[current_string_index];
+                Word_Seperation();
+                wait = true;
+
             }
+
         }
         public void Word_Seperation()
         {
+           // words_to_display = current_string.Split((char)32);
             words_to_display = current_string.Split((char)32);
+        }
+
+        public void WordCheck()
+        {
+
         }
         public class MyListBoxItem
         {
@@ -58,24 +78,41 @@ namespace Disleksia
             public string Message { get; set; }
             public Font Fontstyle { get; set; }
         }
-         
 
 
+        bool wait = false;
         private void imput_KeyPress(object sender, KeyPressEventArgs e)
         {
             switch (e.KeyChar)
             {
                 case (char)13:
-                    if (imput.Text != "")
+                    if (TBX_Input.Text != "")
                     {
-                        string outInBox = Wordscramble(imput.Text);
 
-                        //listBox1.Items.Add(new MyListBoxItem(Color.DarkBlue, imput.Text, new Font("With My Woes", 12, FontStyle.Bold)));
-                        LBX_MainWindow.Items.Add(new MyListBoxItem(Color.DarkBlue, outInBox, player_Text_Handwritten));
-                        LBX_MainWindow.ItemHeight = 28;
-                        //lBx_MainWindow.ItemHeight++;
-                        // listBox1.Items.Add(new MyListBoxItem(Color.Red, ($"{listBox1.ItemHeight}"), new Font("ApplauseFon", 22, FontStyle.Bold)));
-                        // listBox1.Items.Add(imput.Text);
+                        if (!wait)
+                        {
+                            current_word_index++;
+                        string outInBox = Wordscramble(TBX_Input.Text);
+                        LBX_MainWindow.Items.Add((new MyListBoxItem(Color.Black, outInBox, player_Text_Handwritten)));
+
+                        if (outInBox != words_to_display[current_word_index])
+                        {
+                            Fehler++;
+                            label2.Text = ($"FEHLER:    {Fehler}");
+                        }
+
+                        
+                        TBX_Input.Clear();
+                        
+
+                        }
+                        else
+                        {
+                            wait = false;
+                        }
+
+                        Display_Seperatet_Words();
+
                         int counter = LBX_MainWindow.Items.Count;
                         while (counter > 16)
                         {
@@ -94,6 +131,7 @@ namespace Disleksia
 
         private void listBox1_DrawItem(object sender, DrawItemEventArgs e)
         {
+            
             MyListBoxItem item = LBX_MainWindow.Items[e.Index] as MyListBoxItem; // Get the current item and cast it to MyListBoxItem
             if (item != null)
             {
@@ -161,6 +199,11 @@ namespace Disleksia
 
                     playerimput = playerimput.Replace('m', 'n');
                     playerimput = playerimput.Replace('z', 'c');
+                    playerimput = playerimput.Replace('I', 'l');
+                    playerimput = playerimput.Replace('q', 'p');
+
+
+
                     break;
 
                 case 1:
@@ -170,6 +213,17 @@ namespace Disleksia
                 case 2:
                     playerimput = playerimput.ToLower(); 
                     break;
+                case 3:
+                    playerimput = playerimput.Remove(2,4);
+                    break;
+                case 4:
+                    playerimput = playerimput + playerimput;
+                    break;
+                case 5:
+                    playerimput = "ts4zt";
+                    break;
+
+
 
             }
 
@@ -185,6 +239,11 @@ namespace Disleksia
         }
 
         private void btn_test_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
         {
             this.Close();
         }
