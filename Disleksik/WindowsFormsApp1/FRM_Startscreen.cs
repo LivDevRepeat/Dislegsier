@@ -26,7 +26,8 @@ namespace WindowsFormsApp1
             //Text.Visible = true;
 
             this.ShowInTaskbar = false;
-            child  = new FRM_Text();
+            child = new FRM_Text();
+            //child = new FRM_Level_Schreiben(this);
             child.Location = this.Location;
             child.Visible = true;
             child.ShowInTaskbar = true;
