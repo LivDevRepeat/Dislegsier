@@ -26,6 +26,7 @@ namespace Disleksia
             "Wasserhahn ist im Kuchen ",
             "Superkalifragilistischexpialighetische Bananenbrotbacker sind super.",
             "Rindfleischetikettierungsüberwachungsaufgabenübertragungsgesetz macht mega viel Spaß!",
+            " ",
             " "
 
         };
@@ -50,7 +51,7 @@ namespace Disleksia
         public void Display_Seperatet_Words()
         {
             LBX_MainWindow.Items.Add((new MyListBoxItem(Color.Black, words_to_check[current_string_index], font_ui_Text)));
-current_string_index++;
+            current_string_index++;
 
             //if (current_word_index == words_to_display.Length-1)
             //{
@@ -211,7 +212,7 @@ current_string_index++;
         {
             Random random = new Random();
             int scramble = random.Next(0, 8);
-            scramble = 0;
+           //S scramble = 0;
             switch (scramble)
             {
                 case 0:
@@ -234,7 +235,8 @@ current_string_index++;
                     playerimput = playerimput.ToLower(); 
                     break;
                 case 3:
-                    playerimput = playerimput.Remove(2,4);
+                    if (playerimput.Length > 5)
+                    { playerimput = playerimput.Remove(2, 4); }
                     break;
                 case 4:
                     playerimput = playerimput + playerimput;
