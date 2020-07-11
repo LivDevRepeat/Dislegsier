@@ -136,7 +136,7 @@ namespace WindowsFormsApp1
          "Dort scheint er auch nicht zu finden was er Sucht",//13+
          "Wärend des herum blätterns wird ein aufgeschlagenes Buch in JACOBS Sichtfelt geschoben,",//14
          "und es ist auf der SEITE:123 mit der Parabel von Kafka aufgeschlagen.",//15+
-         "'Nun ließ schon du Holzkopf.Eh die Alte dich noch grillt'",//16+
+         "ERIK : 'Nun ließ schon du Holzkopf.Eh die Alte dich noch grillt'",//16+
          "",
          " FRAU BRANDT: 'Wer meckert kommt erstrech dran'", //18
          " FRAU BRANDT: 'Was fair ist und was nicht entscheide immer noch ich!'", //19
