@@ -47,11 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CheckWord.cs" />
-    <Compile Include="FRM_Level_2Layout.cs">
+    <Compile Include="FRM_Level_Lesen_Layover.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FRM_Level_2Layout.Designer.cs">
-      <DependentUpon>FRM_Level_2Layout.cs</DependentUpon>
+    <Compile Include="FRM_Level_Lesen_Layover.Designer.cs">
+      <DependentUpon>FRM_Level_Lesen_Layover.cs</DependentUpon>
     </Compile>
     <Compile Include="FRM_Text.cs">
       <SubType>Form</SubType>
@@ -65,25 +65,25 @@
     <Compile Include="FRM_Startscreen.Designer.cs">
       <DependentUpon>FRM_Startscreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="FRM_Level_1.cs">
+    <Compile Include="FRM_Level_ Schreiben.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FRM_Level_1.Designer.cs">
-      <DependentUpon>FRM_Level_1.cs</DependentUpon>
+    <Compile Include="FRM_Level_ Schreiben.Designer.cs">
+      <DependentUpon>FRM_Level_ Schreiben.cs</DependentUpon>
     </Compile>
-    <Compile Include="FRM_Level_2.cs">
+    <Compile Include="FRM_Leve_Lesen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FRM_Level_2.Designer.cs">
-      <DependentUpon>FRM_Level_2.cs</DependentUpon>
+    <Compile Include="FRM_Leve_Lesen.Designer.cs">
+      <DependentUpon>FRM_Leve_Lesen.cs</DependentUpon>
     </Compile>
     <Compile Include="Gametatus.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Awnsers.cs" />
     <Compile Include="Updater.cs" />
-    <EmbeddedResource Include="FRM_Level_2Layout.resx">
-      <DependentUpon>FRM_Level_2Layout.cs</DependentUpon>
+    <EmbeddedResource Include="FRM_Level_Lesen_Layover.resx">
+      <DependentUpon>FRM_Level_Lesen_Layover.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FRM_Text.resx">
       <DependentUpon>FRM_Text.cs</DependentUpon>
@@ -91,11 +91,11 @@
     <EmbeddedResource Include="FRM_Startscreen.resx">
       <DependentUpon>FRM_Startscreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FRM_Level_1.resx">
-      <DependentUpon>FRM_Level_1.cs</DependentUpon>
+    <EmbeddedResource Include="FRM_Level_ Schreiben.resx">
+      <DependentUpon>FRM_Level_ Schreiben.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FRM_Level_2.resx">
-      <DependentUpon>FRM_Level_2.cs</DependentUpon>
+    <EmbeddedResource Include="FRM_Leve_Lesen.resx">
+      <DependentUpon>FRM_Leve_Lesen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

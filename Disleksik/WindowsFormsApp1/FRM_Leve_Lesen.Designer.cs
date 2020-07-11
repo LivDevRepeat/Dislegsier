@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class FRM_Level_2
+    partial class FRM_Level_Lesen
     {
         /// <summary>
         /// Required designer variable.

@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class FRM_Level_2 : Form
+    public partial class FRM_Level_Lesen : Form
     {
         Updater u = new Updater();
         bool seite = true;
@@ -20,11 +20,11 @@ namespace WindowsFormsApp1
         Font font_ui_Text = new Font("Applau", 20, FontStyle.Regular);
         Font font_ui_Text_Tiny = new Font("Applau", 11, FontStyle.Regular);
         Font font_player_Text_Handwritten = new Font("ApplauseFont", 22, FontStyle.Bold);
-        FRM_Level_2Layout layover;
+        FRM_Level_Lesen_Layover layover;
 
         Point PNLpoinzero { get; set; }
 
-        public FRM_Level_2()
+        public FRM_Level_Lesen()
         {
             InitializeComponent();
             u.Updating();
@@ -347,7 +347,7 @@ namespace WindowsFormsApp1
         private void Configuration_Overlay()
         {
 
-            layover = new FRM_Level_2Layout(this);
+            layover = new FRM_Level_Lesen_Layover(this);
             layover.Visible = true;
             layover.TopMost = true;
             layover.Location = this.Location;

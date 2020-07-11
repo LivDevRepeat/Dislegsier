@@ -12,13 +12,13 @@ namespace WindowsFormsApp1
 {
 
 
-    public partial class FRM_Level_2Layout : Form
+    public partial class FRM_Level_Lesen_Layover : Form
     {
 
         public  Updater u = new Updater();
         Updater uname = new Updater();
 
-        private FRM_Level_2 frm_Level_2;
+        private FRM_Level_Lesen frm_Level_2;
         public CheckWord Location_of_Word;
         public int words_to_check_index = 0;
         public List<CheckWord> words_to_check = new List<CheckWord>()
@@ -54,7 +54,7 @@ namespace WindowsFormsApp1
 
 
 
-        public FRM_Level_2Layout(FRM_Level_2 fRM_Level_2)
+        public FRM_Level_Lesen_Layover(FRM_Level_Lesen fRM_Level_2)
         {
             InitializeComponent();
             frm_Level_2 = fRM_Level_2;
