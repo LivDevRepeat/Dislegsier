@@ -25,10 +25,12 @@ namespace WindowsFormsApp1
             //FRM_Text Text = new FRM_Text();
             //Text.Visible = true;
 
+            this.ShowInTaskbar = false;
             child  = new FRM_Text();
             child.Location = this.Location;
             child.Visible = true;
-            child.ShowInTaskbar = false;
+            child.ShowInTaskbar = true;
+            child.Select();
            // this.Visible = false;
         }
 

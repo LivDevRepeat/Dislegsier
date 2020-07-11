@@ -8,8 +8,10 @@ using WindowsFormsApp1;
 namespace Disleksia
 {
     public partial class FRM_Level_Schreiben : Form
-    {
-        Updater u = new Updater();
+    { 
+
+         public Form Parent { get; private set; }
+    Updater u = new Updater();
         Font font_ui_Text = new Font("Applau", 12, FontStyle.Regular);
         Font font_ui_Text_big = new Font("Applau", 18, FontStyle.Regular);
         Font font_player_Text_Handwritten = new Font("ApplauseFont", 22, FontStyle.Bold);
@@ -17,21 +19,24 @@ namespace Disleksia
        string[] words_to_display;
         int Fehler = 0;
 
-       string[]  words_to_check =
-        {
-            "Ich mag Züge edfgfd",
-            "Wo sind alle Blumen? efdgfd",
+        string[] words_to_check =
+         {
+            "Ich mag Züge!",
+            "Wo sind alle Blumen?",
             "Wasserhahn ist im Kuchen ",
-            "Superkalifragilistischexpialighetische Bananenbrotbacker sind super. e",
-            "Rindfleischetikettierungsüberwachungsaufgabenübertragungsgesetz macht mega viel Spaß! e"
+            "Superkalifragilistischexpialighetische Bananenbrotbacker sind super.",
+            "Rindfleischetikettierungsüberwachungsaufgabenübertragungsgesetz macht mega viel Spaß!",
+            " "
+
         };
         int current_word_index =0 ;
         int current_string_index = 0;
         string current_string;
         
-        public FRM_Level_Schreiben()
+        public FRM_Level_Schreiben(Form parent)
         {
             InitializeComponent();
+            Parent = parent;
 
             LBX_MainWindow.Items.Add((new MyListBoxItem(Color.Black, "Du sollst Die Sätze mitschreiben", font_ui_Text_big)));
             
@@ -45,6 +50,7 @@ namespace Disleksia
         public void Display_Seperatet_Words()
         {
             LBX_MainWindow.Items.Add((new MyListBoxItem(Color.Black, words_to_check[current_string_index], font_ui_Text)));
+current_string_index++;
 
             //if (current_word_index == words_to_display.Length-1)
             //{
@@ -84,12 +90,13 @@ namespace Disleksia
 
 
         bool wait = false;
+        bool closesoon = false;
         private void imput_KeyPress(object sender, KeyPressEventArgs e)
         {
             switch (e.KeyChar)
             {
                 case (char)13:
-                    if (TBX_Input.Text != "")
+                    if (TBX_Input.Text != "" && current_string_index < words_to_check.Count())
                     {
 
                         if (!wait)
@@ -114,6 +121,7 @@ namespace Disleksia
                             wait = false;
                         }
 
+                        
                         Display_Seperatet_Words();
 
                         int counter = LBX_MainWindow.Items.Count;
@@ -123,15 +131,16 @@ namespace Disleksia
                             counter = LBX_MainWindow.Items.Count;
                         }
 
-                        current_string_index++;
+
+                    }
                         if (current_string_index> words_to_check.Count() - 1)
                         {
+                            if (closesoon) { this.Close(); }
+                            closesoon = true;
                             LBX_MainWindow.Items.Clear();
                             LBX_MainWindow.Items.Add((new MyListBoxItem(Color.Black, $" Du hast dich {Fehler} mal verschrieben!", font_ui_Text_big)));
 
                         }
-
-                    }
                     break;
 
 
@@ -242,11 +251,8 @@ namespace Disleksia
         }
         private void FRM_Level_1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(e.CloseReason != CloseReason.ApplicationExitCall)
-            {
-              // Environment.Exit(0);
-
-            }
+            this.Parent.ShowInTaskbar = true;
+            this.Parent.BringToFront();
         }
 
         private void btn_test_Click(object sender, EventArgs e)

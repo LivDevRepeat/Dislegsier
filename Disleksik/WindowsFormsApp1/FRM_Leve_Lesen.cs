@@ -13,6 +13,7 @@ namespace WindowsFormsApp1
 {
     public partial class FRM_Level_Lesen : Form
     {
+        public Form Parent{ get;private set; }
         Updater u = new Updater();
         bool seite = true;
         int moving_counter = 1;
@@ -24,13 +25,17 @@ namespace WindowsFormsApp1
 
         Point PNLpoinzero { get; set; }
 
-        public FRM_Level_Lesen()
-        {
+        public FRM_Level_Lesen(Form parent)
+        { // genara Manditory Code for an Level
+
             InitializeComponent();
             u.Updating();
+            Parent = parent;
+            parent.ShowInTaskbar = false;
+            this.ShowInTaskbar = true;
+            this.Select();
             Configuration_Text();
             Configuration_Overlay();
-            this.ShowInTaskbar = false;
             Cursor.Hide();
 
             u.intervall = 60;
@@ -265,10 +270,11 @@ namespace WindowsFormsApp1
 
         private void FRM_Level_2_FormClosing(object sender, FormClosingEventArgs e)
         {
-            layover.Close();
             u.Stoping();
-            Gametatus.Gamestatus = 0;
-            
+            layover.Close();
+            Gametatus.Gamestatus = 0; 
+            this.Parent.BringToFront();
+            this.Parent.ShowInTaskbar = true;
         }
 
         private void button4_Click(object sender, EventArgs e)
