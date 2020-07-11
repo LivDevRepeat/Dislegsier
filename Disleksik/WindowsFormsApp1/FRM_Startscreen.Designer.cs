@@ -32,6 +32,7 @@
             this.BTN_Start = new System.Windows.Forms.Button();
             this.BTN_Exit = new System.Windows.Forms.Button();
             this.LBL_MainName = new System.Windows.Forms.Label();
+            this.BTN_Continue = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BTN_Start
@@ -60,11 +61,21 @@
             this.LBL_MainName.ForeColor = System.Drawing.Color.Black;
             this.LBL_MainName.Name = "LBL_MainName";
             // 
+            // BTN_Continue
+            // 
+            this.BTN_Continue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            resources.ApplyResources(this.BTN_Continue, "BTN_Continue");
+            this.BTN_Continue.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.BTN_Continue.Name = "BTN_Continue";
+            this.BTN_Continue.UseVisualStyleBackColor = false;
+            this.BTN_Continue.Click += new System.EventHandler(this.BTN_Start_Click);
+            // 
             // FRM_Startscreen
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
+            this.Controls.Add(this.BTN_Continue);
             this.Controls.Add(this.LBL_MainName);
             this.Controls.Add(this.BTN_Exit);
             this.Controls.Add(this.BTN_Start);
@@ -84,5 +95,6 @@
         private System.Windows.Forms.Button BTN_Start;
         private System.Windows.Forms.Button BTN_Exit;
         private System.Windows.Forms.Label LBL_MainName;
+        private System.Windows.Forms.Button BTN_Continue;
     }
 }

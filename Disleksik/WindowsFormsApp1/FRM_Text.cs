@@ -287,12 +287,15 @@ namespace WindowsFormsApp1
                             switch (selected_awnser.Index_of_awnser)
                             {
                                 case 2:
-                                    Formloader(new FRM_Level_Schreiben(), Awnsers_Kapite_3, Questions_Kapite_3);
+                                    Formloader(new FRM_Level_Schreiben(this), Awnsers_Kapite_3, Questions_Kapite_3);
                                 
                                     break;
                                 case 1:
 
-                                    Formloader(new FRM_Level_Lesen(), Awnsers_Kapite_2, Questions_Kapite_2);
+                                    Formloader(new FRM_Level_Lesen(this), Awnsers_Kapite_2, Questions_Kapite_2);
+                                    break;
+                                case 3:
+                                    Environment.Exit(0);
                                     break;
                             }
                         }
