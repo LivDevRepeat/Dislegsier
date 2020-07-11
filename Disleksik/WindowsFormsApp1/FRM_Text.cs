@@ -84,25 +84,37 @@ namespace WindowsFormsApp1
         };
         List<Awnsers> Awnsers_Kapite_1 = new List<Awnsers>()
         {
-        new Awnsers(5,0,6,"..."),
-        new Awnsers(5,0,7,"Wie bitte Frau Brandt?"),
-        new Awnsers(8,0,9,"Naja, zusammengfast sind Parabeln epische Kurzformen, die zur Veranschaulichung eines Gedanken dienen."),
-        new Awnsers(8,0,9,"Alsooo..."),
-        new Awnsers(8,0,9,"Natürlich..."),
-        new Awnsers(9,0,10,"Klar, ich muss nur..."),
-        new Awnsers(9,0,10,"Ja, warten sie bitte kurz..."),
-        new Awnsers(11,0,12,"Seite:113"),
-        new Awnsers(11,0,12,"Seite:117"),
-        new Awnsers(11,0,12,"Seite:121"),
-        new Awnsers(12,0,13,"Seite:125"),
-        new Awnsers(12,0,13,"Seite:129"),
-        new Awnsers(12,0,13,"Seite:133"),
-        new Awnsers(13,0,14,"Seite:137"),
-        new Awnsers(13,0,14,"Seite:141"),
-        new Awnsers(13,0,14,"Seite:145"),
-        new Awnsers(15,0,16,"*flüsternd* Danke ERIK."),
-        new Awnsers(15,1,17,"Ok... ehem... 'GIBS AUF' von Franz Kafka aus dem Jahr 1922."),
-        new Awnsers(16,1,17,"Ok... ehem... 'GIBS AUF' von Franz Kafka aus dem Jahr 1922."),
+        new Awnsers(5,0, 6,"``...´´"),
+        new Awnsers(5,0 ,7,"``Wie bitte Frau Brandt?´´"),
+
+        new Awnsers(8,0 ,9,"``Naja, zusammengfast sind Parabeln epische Kurzformen, die zur Veranschaulichung eines Gedanken dienen.´´"),
+        new Awnsers(8,0, 9,"``Alsooo...´´"),
+        new Awnsers(8,0, 9,"``Natürlich...´´"),
+
+        new Awnsers(9,0,10,"``Klar, ich muss nur...´´"),
+        new Awnsers(9,0,10,"``Ja, warten sie bitte kurz...´´"),
+
+        new Awnsers(11,0,12,"*flüsternd* ``Fuck wo muss ich hin´´"),
+        new Awnsers(11,0,18,"``Ähm. Warum muss ich den jetzt? Ich konnte ihre frage doch beantworten´´"),
+        new Awnsers(11,0,12,"*flüsternd* ``oh nein´´"),
+
+        new Awnsers(12,0,13,"*in Gedanken* `hier oder? hier´"),
+        new Awnsers(12,0,13,"`Stimmt war ja 2 Seiten weiter´"),
+
+        new Awnsers(13,0,14,"`137??´"),
+        new Awnsers(13,0,14,"`ich will nicht´"),
+        new Awnsers(13,0,14,"`141 ist es bestimmt´"),
+
+        new Awnsers(15,0,16,"*flüsternd* ``Danke ERIK.´´"),
+        new Awnsers(15,1,17,"``Ok... ehem... 'GIBS AUF' von Franz Kafka aus dem Jahr 1922.´´"),
+
+        new Awnsers(16,1,17,"``Ok... ehem... 'GIBS AUF' von Franz Kafka aus dem Jahr 1922.´´"),
+
+        new Awnsers(18,0,19,"``Das ist doch nicht fair´´"),
+        new Awnsers(18,0,20,"``....... okay...´´"),
+
+        new Awnsers(20,0,12,"*in Gedanken* `Ich glaub ...ah.. da hab ich doch gesehen Seite 12...´"),
+        
         };
 
 
@@ -113,39 +125,49 @@ namespace WindowsFormsApp1
          "Nur JACOB lässt den Blick aus dem Fenster schweifen.", //2
          "Der Himmel ist klar mit einer aufgelößten Horde einzelner Kummulus Wolken, ",//3
          "und die Linden am Friedhof tanzen zum Rhytmus des Windes.",//4
-         "???:'JACOB... ",//5+
-         "JACOB!'",//6+
+         "???:'JACOB... '",//5+
+         "???:'JACOB!''",//6+
          "FRAU BRANDT:'Hast du bereits den Sachtext gelesen?",//7
          "Oder hast du wieder nur Löcher in die Luft gestart?'",//8+
          "FRAU BRANDT:'Okey, dann ließ doch bitte gleich die Parabel von Kafka aus der ersten Aufgabe vor.'",//9+
-         "*flüsternd*",//10
-         "'Scheiße, auf welcher Seite waren wir noch mal?'",//11+
-         "'Nein...'",//12+
-         "'Nein... Nein...'",//13+
-         "Wärend des herum plätterns wird ein aufgeschlagenes Buch in JACOBS Sichtfelt geschoben,",//14
+         "Leicht verzweifelt schlägt JACOB sein bis dahin geschlossenes Buch auf.",//10
+         "Er versucht die passende Seite zu finden ",//11+
+         "JACOB blättert nervös weiter",//12+
+         "Dort scheint er auch nicht zu finden was er Sucht",//13+
+         "Wärend des herum blätterns wird ein aufgeschlagenes Buch in JACOBS Sichtfelt geschoben,",//14
          "und es ist auf der SEITE:123 mit der Parabel von Kafka aufgeschlagen.",//15+
-         "Nun ließ schon du Holzkopf.",//16+
+         "'Nun ließ schon du Holzkopf.Eh die Alte dich noch grillt'",//16+
+         "",
+         " FRAU BRANDT: 'Wer meckert kommt erstrech dran'", //18
+         " FRAU BRANDT: 'Was fair ist und was nicht entscheide immer noch ich!'", //19
+         "JACOB sicht weiter im Buch nach dem Text",//20
+
         };
 
         List<Awnsers> Awnsers_Kapite_2 = new List<Awnsers>()
         {
+            new Awnsers(0,0,0,"Ist okay."),
+            new Awnsers(0,3,0,"Okay dan schüss"),
+            new Awnsers(0,2,0,"Ich würde trotddem gerne lvel 2 sehgen"),
 
         };
 
 
         List<string> Questions_Kapite_2 = new List<string>()
         {
+           " Sorry weitter geht die Story gerade nicht", //0
 
         };
         
         List<Awnsers> Awnsers_Kapite_3 = new List<Awnsers>()
         {
-
+            new Awnsers(0,3,0,"Tüdelü")
         };
 
 
         List<string> Questions_Kapite_3 = new List<string>()
         {
+            " jetzt gibts wirklich nichts mehr"
         };
 
 
@@ -153,15 +175,15 @@ namespace WindowsFormsApp1
 
 
         List<Awnsers> current_Awnserlist ;
-        List<string> current_Questionlist ;
+        List<string> current_Questionlist;
 
         public FRM_Text()
         {
             InitializeComponent();
 
         
-            current_Awnserlist = Awnsers_Test;
-            current_Questionlist = Questions_Test;
+            current_Awnserlist = Awnsers_Kapite_1;
+            current_Questionlist = Questions_Kapite_1;
         
            
             updater.Updating();
@@ -225,12 +247,12 @@ namespace WindowsFormsApp1
                 if (awnser.Index_of_asked_question == current_question_index)
                 {
                     current_awnsers.Add(awnser);
-                    LBX_Awnsers.Items.Add($"'{awnser.Content}'");
+                    LBX_Awnsers.Items.Add($"{awnser.Content}");
                     awnsercounter++;
                 }
             }
 
-            if (awnsercounter == 0)
+            if (awnsercounter == 0 )
             {
                 if(current_question_index < current_Questionlist.Count - 1)
                 {
@@ -249,34 +271,6 @@ namespace WindowsFormsApp1
         /// </summary>
         /// <param name="playerimput"></param>
         /// <returns></returns>
-        private void LBX_Awnsers_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (LBX_Awnsers.SelectedIndex >-1) 
-            { 
-                Awnsers selected_awnser = current_awnsers[LBX_Awnsers.SelectedIndex];
-                current_question_index = selected_awnser.Index_of_next_question;
-                LBX_MainWindow.Items.Add((new MyListBoxItem(Color.Blue,$"`{selected_awnser.Content}´",font_player_Text_Handwritten)));
-                Display_awnsers_and_question();
-                if (selected_awnser.Index_of_awnser!=0)
-                {
-                    switch (selected_awnser.Index_of_awnser)
-                    {
-                        case 2:
-                            child = new FRM_Level_1();
-                            child.Visible = true;
-                            child.Location = this.Location;
-                            break;
-                        case 1:
-                            child  = new FRM_Level_2();
-                            child.Visible = true;
-                            child.Location = this.Location;
-                            break;
-                    }
-                }
-
-            
-            }
-        }
 
         private void LBX_Awnsers_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -287,25 +281,23 @@ namespace WindowsFormsApp1
                     {
                         Awnsers selected_awnser = current_awnsers[LBX_Awnsers.SelectedIndex];
                         current_question_index = selected_awnser.Index_of_next_question;
-                        LBX_MainWindow.Items.Add((new MyListBoxItem(Color.Black, $"`{selected_awnser.Content}´", font_player_Text_Handwritten)));
-                        Display_awnsers_and_question();
+                        LBX_MainWindow.Items.Add((new MyListBoxItem(Color.Black, $"{selected_awnser.Content}", font_player_Text_Handwritten)));
                         if (selected_awnser.Index_of_awnser != 0)
                         {
                             switch (selected_awnser.Index_of_awnser)
                             {
                                 case 2:
-                                    child = new FRM_Level_1();
-                                    child.Visible = true;
-                                    child.Location = this.Location;
+                                    Formloader(new FRM_Level_Schreiben(), Awnsers_Kapite_3, Questions_Kapite_3);
+                                
                                     break;
                                 case 1:
-                                    child = new FRM_Level_2();
-                                    child.Visible = true;
-                                    child.Location = this.Location;
+
+                                    Formloader(new FRM_Level_Lesen(), Awnsers_Kapite_2, Questions_Kapite_2);
                                     break;
                             }
                         }
 
+                        Display_awnsers_and_question();
 
                     }
                     break;
@@ -316,6 +308,18 @@ namespace WindowsFormsApp1
                     LBX_Awnsers.SelectedIndex++;
                     break;
             }
+        }
+
+        private void Formloader(Form form, List<Awnsers> lista, List<string> listb)
+        {
+            child = form;
+            child.Visible = true;
+            child.Location = this.Location;
+            current_question_index = 0;
+            LBX_MainWindow.Items.Clear();
+            current_Awnserlist = lista;
+            current_Questionlist =listb;
+         
         }
 
         private void button4_Click(object sender, EventArgs e)

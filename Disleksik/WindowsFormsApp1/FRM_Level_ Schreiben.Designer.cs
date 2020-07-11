@@ -1,6 +1,6 @@
 ﻿namespace Disleksia
 {
-    partial class FRM_Level_1
+    partial class FRM_Level_Schreiben
     {
         /// <summary>
         /// Required designer variable.
@@ -97,7 +97,7 @@
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // FRM_Level_1
+            // FRM_Level_Schreiben
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -110,7 +110,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximumSize = new System.Drawing.Size(1015, 738);
-            this.Name = "FRM_Level_1";
+            this.Name = "FRM_Level_Schreiben";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dyslekxic";
             this.ResumeLayout(false);

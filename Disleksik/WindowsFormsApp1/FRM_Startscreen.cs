@@ -25,7 +25,7 @@ namespace WindowsFormsApp1
             //FRM_Text Text = new FRM_Text();
             //Text.Visible = true;
 
-            child  = new FRM_Level_2();
+            child  = new FRM_Text();
             child.Location = this.Location;
             child.Visible = true;
             child.ShowInTaskbar = false;

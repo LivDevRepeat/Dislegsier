@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using WindowsFormsApp1;
 
 namespace Disleksia
 {
-    public partial class FRM_Level_1 : Form
+    public partial class FRM_Level_Schreiben : Form
     {
         Updater u = new Updater();
-        Font ui_Text = new Font("Applau", 12, FontStyle.Regular);
-        Font player_Text_Handwritten = new Font("ApplauseFont", 22, FontStyle.Bold);
+        Font font_ui_Text = new Font("Applau", 12, FontStyle.Regular);
+        Font font_ui_Text_big = new Font("Applau", 18, FontStyle.Regular);
+        Font font_player_Text_Handwritten = new Font("ApplauseFont", 22, FontStyle.Bold);
+
        string[] words_to_display;
         int Fehler = 0;
 
@@ -26,11 +29,11 @@ namespace Disleksia
         int current_string_index = 0;
         string current_string;
         
-        public FRM_Level_1()
+        public FRM_Level_Schreiben()
         {
             InitializeComponent();
 
-            LBX_MainWindow.Items.Add((new MyListBoxItem(Color.Black, "Du sollst Die Vokabeln mitschreiben", ui_Text)));
+            LBX_MainWindow.Items.Add((new MyListBoxItem(Color.Black, "Du sollst Die Sätze mitschreiben", font_ui_Text_big)));
             
             current_string = words_to_check[current_string_index];
             Word_Seperation();
@@ -41,19 +44,19 @@ namespace Disleksia
 
         public void Display_Seperatet_Words()
         {
-            LBX_MainWindow.Items.Add((new MyListBoxItem(Color.Black, words_to_display[current_word_index], ui_Text)));
+            LBX_MainWindow.Items.Add((new MyListBoxItem(Color.Black, words_to_check[current_string_index], font_ui_Text)));
 
-            if (current_word_index == words_to_display.Length-1)
-            {
-                LBX_MainWindow.Items.Clear();
-                LBX_MainWindow.Items.Add((new MyListBoxItem(Color.Black, "Du sollst Die Vokabeln mitschreiben", ui_Text)));
-                current_word_index = 0;
-                current_string_index++;
-                current_string = words_to_check[current_string_index];
-                Word_Seperation();
-                wait = true;
+            //if (current_word_index == words_to_display.Length-1)
+            //{
+            //    LBX_MainWindow.Items.Clear();
+            //    LBX_MainWindow.Items.Add((new MyListBoxItem(Color.Black, "Du sollst Die Vokabeln mitschreiben", ui_Text)));
+            //    current_word_index = 0;
+            //    current_string_index++;
+            //    current_string = words_to_check[current_string_index];
+            //    Word_Seperation();
+            //    wait = true;
 
-            }
+            //}
 
         }
         public void Word_Seperation()
@@ -91,11 +94,11 @@ namespace Disleksia
 
                         if (!wait)
                         {
-                            current_word_index++;
+                          
                         string outInBox = Wordscramble(TBX_Input.Text);
-                        LBX_MainWindow.Items.Add((new MyListBoxItem(Color.Black, outInBox, player_Text_Handwritten)));
+                        LBX_MainWindow.Items.Add((new MyListBoxItem(Color.Black, outInBox, font_player_Text_Handwritten)));
 
-                        if (outInBox != words_to_display[current_word_index])
+                        if (outInBox != words_to_check[current_string_index])
                         {
                             Fehler++;
                             label2.Text = ($"FEHLER:    {Fehler}");
@@ -118,6 +121,14 @@ namespace Disleksia
                         {
                             LBX_MainWindow.Items.RemoveAt(0);
                             counter = LBX_MainWindow.Items.Count;
+                        }
+
+                        current_string_index++;
+                        if (current_string_index> words_to_check.Count() - 1)
+                        {
+                            LBX_MainWindow.Items.Clear();
+                            LBX_MainWindow.Items.Add((new MyListBoxItem(Color.Black, $" Du hast dich {Fehler} mal verschrieben!", font_ui_Text_big)));
+
                         }
 
                     }

@@ -65,11 +65,10 @@
             // 
             this.LBX_Awnsers.BackColor = System.Drawing.SystemColors.MenuText;
             this.LBX_Awnsers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LBX_Awnsers.ColumnWidth = 470;
-            this.LBX_Awnsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBX_Awnsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LBX_Awnsers.ForeColor = System.Drawing.SystemColors.Window;
             this.LBX_Awnsers.FormattingEnabled = true;
-            this.LBX_Awnsers.ItemHeight = 33;
+            this.LBX_Awnsers.ItemHeight = 24;
             this.LBX_Awnsers.Items.AddRange(new object[] {
             "Antwort 1",
             "Antwort 2",
@@ -79,7 +78,7 @@
             this.LBX_Awnsers.Margin = new System.Windows.Forms.Padding(0);
             this.LBX_Awnsers.MultiColumn = true;
             this.LBX_Awnsers.Name = "LBX_Awnsers";
-            this.LBX_Awnsers.Size = new System.Drawing.Size(963, 134);
+            this.LBX_Awnsers.Size = new System.Drawing.Size(963, 122);
             this.LBX_Awnsers.TabIndex = 5;
             this.LBX_Awnsers.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBox1_DrawItem);
             this.LBX_Awnsers.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LBX_Awnsers_KeyPress);
